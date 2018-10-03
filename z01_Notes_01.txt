@@ -205,3 +205,175 @@ Child mini-css-extract-plugin node_modules/css-loader/index.js??ref--5-2!node_mo
 Webpack Bundle Analyzer is started at http://127.0.0.1:8888
 Use Ctrl+C to close it
 
+
+cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+Field 'browser' doesn't contain a valid alias configuration
+
+
+Entry module not found: Error: Can't resolve './src'
+
+Ralph  · 18 hours ago 
+
+
+Hi Adam,
+
+I changed it back (to the dist folder), and it still does not work.
+
+I've set up the indecision app with the server code to run with nodejs, and it worked.
+
+I've cloned the Budget app to another system, and it did not work with that system either.
+
+I'm completely baffled as to why it worked on your system, and not on either of mine.
+
+The computer gods are mocking me! <shakes fist at the air>
+
+This is exasperating.
+
+
+I've come across this page:
+
+https://webpack.js.org/api/node/
+
+
+
+I've added the code that they have there. My server_135.js now looks like this:
+
+
+//  server_135.js
+ 
+//  SEC_013 --- 135. A Production Web Server with Express 13:14
+
+ 
+const GC_express = require('express');
+const GC_app = GC_express();
+const GC_path = require('path');
+const GC_public_path = GC_path.join(__dirname, '..', 'public');
+const GC_dist_path = GC_path.join(__dirname, '..', 'dist');
+//const GC_default_path = GC_path.join(GC_public_path, 'index.html');
+const GC_default_path = GC_path.join(GC_dist_path, 'index.html');
+const GC_port = 3000;
+ 
+const webpack = require("webpack");
+ 
+webpack({
+  // Configuration Object
+}, (err, stats) => {
+  if (err) {
+    console.error(err.stack || err);
+    if (err.details) {
+      console.error(err.details);
+    }
+    return;
+  }
+ 
+  const info = stats.toJson();
+ 
+  if (stats.hasErrors()) {
+    console.error(info.errors);
+  }
+ 
+  if (stats.hasWarnings()) {
+    console.warn(info.warnings);
+  }
+ 
+  // Log result...
+});
+ 
+ 
+//  use the middleware GC_express.static(GC_public_path)
+//  GC_app.use(GC_express.static(GC_public_path));
+  GC_app.use(GC_express.static(GC_dist_path));
+ 
+function unhandled_requests (req, res)
+{
+    res.sendFile(GC_default_path);
+}
+ 
+//  match all unmatched routes --- *
+GC_app.get ('*', unhandled_requests);
+//  path
+ 
+function listen_handler ()
+{
+    console.log ('server is up');
+}
+ 
+GC_app.listen(GC_port, listen_handler);
+
+
+
+I am now getting error messages:
+
+
+
+Entry module not found: Error: Can't resolve './src'
+ 
+K:\A01_Udemy\Budget-app_03>node A02_sec013_135_server\server_135.js
+server is up
+[ 'Entry module not found: Error: Can\'t resolve \'./src\'
+ in \'K:\\A01_Udemy\\Budget-app_03\'
+ resolve \'./src\' in \'K:\\A01_Udemy\\Budget-app_03\'
+ using description file:
+ K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: .)
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src)
+ no extension
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src is not a file
+ .wasm
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.wasm doesn\'t exist
+ .mjs
+ Field \'browser\' doesn\'t contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.mjs doesn\'t exist
+ .js
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src.js doesn\'t exist
+.json
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src.json doesn\'t exist
+as directory
+existing directory
+using path: K:\\A01_Udemy\\Budget-app_03\\src\\index
+using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src/index)
+no extension
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index doesn\'t exist
+.wasm
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.wasm doesn\'t exist
+.mjs
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.mjs doesn\'t exist
+.js
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.js doesn\'t exist
+.json
+Field \'browser\' doesn\'t contain a valid alias configuration
+K:\\A01_Udemy\\Budget-app_03\\src\\index.json doesn\'t exist' ]
+ 
+[ 'configuration\nThe \'mode\' option has not been set, webpack
+ will fallback to \'production\' for this value. Set \'mode\' option
+ to \'development\' or \'production\' to enable defaults for each environment.
+ You can also set it to \'none\' to disable any default behavior.
+ Learn more: https://webpack.js.org/concepts/mode/' ]
+ 
+
+
+.src DOES exist.
+
+I don't understand this.
+
+
+I googled on this: "Field 'browser' doesn't contain a valid alias configuration"
+
+I see a lot of developers having a similar issue with Angular and Typescript:
+
+https://github.com/angular/angular-cli/issues/8036
+
+
+If you have any ideas as to why I am having this problem,
+I would appreciate it if you'd share them with me.
+
+THANKS!
