@@ -30,6 +30,11 @@ export class CLS_expense_list_filters extends React.Component
       calenderFocused: null
     };
 
+    constructor (P_props)
+    {
+      super (P_props);
+    }
+
     onExpenseDatesChange = ( { startDate, endDate } ) => {
       this.props.MDTP_setStartDate(startDate);
 
