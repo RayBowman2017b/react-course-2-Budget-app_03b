@@ -1,6 +1,5 @@
 
 /*
-
   sec009a_SFC_header.jsx
 
 K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
@@ -15,7 +14,7 @@ import MP_header from '../../sec009a_components/sec009a_SFC_header.jsx';
 
 import React from 'react';
 
-import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
 
 const GC_link = (P_props) =>
@@ -29,10 +28,6 @@ const GC_link = (P_props) =>
     </NavLink>
   </div>
 );
-
-   //  [S07251666|sec009a_app_router.jsx::SFC_header tpl1;^B]
-
-   //  [S07251664|A01_DIrectory_01.txt::DRC1: MP_header <1>]
 
 const GC_header = () =>
 (

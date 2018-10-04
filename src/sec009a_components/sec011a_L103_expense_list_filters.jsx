@@ -8,17 +8,17 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 
-//  import { DateRangePicker } from 'react-dates';
+  import { DateRangePicker } from 'react-dates';
 
 import Loadable from 'react-loadable';
 
 import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 
-const DateRangePicker = Loadable({
-  loader: () => import('react-dates'),
-  loading: MP_common_loading_handler,
-  timeout: 3000, // 3 seconds
-});
+// const DateRangePicker = Loadable({
+//   loader: () => import('react-dates'),
+//   loading: MP_common_loading_handler,
+//   timeout: 3000, // 3 seconds
+// });
 
 
 
@@ -43,7 +43,6 @@ export class CLS_expense_list_filters extends React.Component
 
     onExpenseFocusChange = (calenderFocused) => {
       this.setState ( () => ( { calenderFocused } ) );
-                            //[ calenderFocused s1;^B]
     };
 
     TXBX_filters_change = (P_event) =>  {

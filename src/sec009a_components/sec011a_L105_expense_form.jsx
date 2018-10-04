@@ -11,19 +11,21 @@ import Loadable from 'react-loadable';
 
 import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 
-const moment = Loadable({
-  loader: () => import('moment'),
-  loading: MP_common_loading_handler,
-  timeout: 3000, // 3 seconds
-});
+import moment from 'moment';
 
-//import { SingleDatePicker } from 'react-dates';
+// const moment = Loadable({
+//   loader: () => import('moment'),
+//   loading: MP_common_loading_handler,
+//   timeout: 3000, // 3 seconds
+// });
 
-const SingleDatePicker = Loadable({
-  loader: () => import('react-dates'),
-  loading: MP_common_loading_handler,
-  timeout: 3000, // 3 seconds
-});
+import { SingleDatePicker } from 'react-dates';
+
+// const SingleDatePicker = Loadable({
+//   loader: () => import('react-dates'),
+//   loading: MP_common_loading_handler,
+//   timeout: 3000, // 3 seconds
+// });
 
 const now = moment();
 

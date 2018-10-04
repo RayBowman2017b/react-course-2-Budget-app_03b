@@ -16,6 +16,9 @@ import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
 
  **************************************************************/
 
+import React from 'react';
+import ReactDOM from 'react-dom';
+
 export default class CLS_ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
@@ -51,6 +54,7 @@ export default class CLS_ErrorBoundary extends React.Component {
 }
 
 
+/*****************************************************************
 
 class BuggyCounter extends React.Component {
   constructor(props) {
@@ -107,4 +111,5 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
+ *****************************************************************/
 

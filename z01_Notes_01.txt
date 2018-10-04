@@ -13,6 +13,9 @@ sec012a_app.js:61   --- GC_store.getState() {expenses: Array(3), filters: {…}}
 Loadable_Handlers.jsx:9 P_props.error is TypeError: Cannot call a class as a function
 
 
+Loadable_Handlers.jsx TypeError: Cannot call a class as a function
+
+
 git@github.com:RayBowman2017b/react-course-2-Budget-app_03b.git
 
 
