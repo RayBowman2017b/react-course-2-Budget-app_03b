@@ -1,5 +1,18 @@
 
 
+Refused to apply style from
+ 'http://localhost:9900/edit/style.a23ca12b7b61a170c2b9.css?3a91e13b6a07f49905c5'
+  because its MIME type ('text/html') is not a supported stylesheet MIME type,
+  and strict MIME checking is enabled.
+sec009a_app_router.jsx:63 router called
+sec012a_app.js:10  sec012a_app.jsx is running!
+sec012a_app.js:61   --- GC_store.getState() {expenses: Array(3), filters: {…}}
+Loadable_Handlers.jsx:9 P_props.error is TypeError: Cannot call a class as a function
+
+
+git@github.com:RayBowman2017b/react-course-2-Budget-app_03b.git
+
+
 //  node A02_sec013_135_server\server_135.js
 //  node  babel-node A02_sec013_135_server\server_135.js  --ignore client
 //  node   A02_sec013_135_server\server_135.js  --ignore client

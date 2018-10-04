@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[6],{208:function(n,e,o){"use strict";o.r(e);var t=o(1),i=o.n(t);e.default=function(){return i.a.createElement("div",null,"This is from my help component.")}}}]);
-//# sourceMappingURL=6.5b3754d2472dcb72db14.js.map

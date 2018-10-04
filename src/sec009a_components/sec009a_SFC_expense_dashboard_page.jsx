@@ -19,21 +19,14 @@ import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 
 import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
 
-
-    //  [S07251666|sec009a_app_router.jsx::GC_expense_dashboard_page rtr1;^B]
-
-    //  [S07251664|A01_DIrectory_01.txt::DRC1: GC_expense_dashboard_page <1>^B]
+import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
 
 const GC_expense_dashboard_page = () =>
 (
   <div>
     <div>This is from my dashboard component.</div>
-    <CLS_expense_list_filters />
-    {/*//  [S07251667|sec011a_L103_expense_list_filters.jsx::TPL1: CLS_expense_list_filters <1>^B]
-       //  [S07251667|sec011a_L103_expense_list_filters.jsx::CLS_expense_list_filters.render tpl1;^B]
-      */}
+    <CLS_ErrorBoundary><CLS_expense_list_filters /></CLS_ErrorBoundary>
     <SFC_expense_list />
-    {/*  [S07251667|sec011a_L101_expense_list.jsx::TPL1: SFC_expense_list <1>^B] */}
   </div>
 );
 

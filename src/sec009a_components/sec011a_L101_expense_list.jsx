@@ -9,6 +9,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SFC_expense_list_item from "./sec011a_L102_expense_list_item.jsx";
 
+import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
+
 import Loadable from 'react-loadable';
 //import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx";
 
@@ -26,7 +28,7 @@ const Loading_02 = (P_props) =>
   } else {
     return null;
   }
-   <div>Loading...</div>;
+//   <div>Loading...</div>;
 }
 
 //import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
@@ -50,7 +52,9 @@ export const SFC_expense_list = (P_props) => (
         <p>No Expenses</p>
     ) : (
         P_props.expenses.map ( (P_expense) => (
-           <SFC_expense_list_item key={P_expense.id} {...P_expense} />
+           <CLS_ErrorBoundary>
+              <SFC_expense_list_item key={P_expense.id} {...P_expense} />
+           </CLS_ErrorBoundary>
                                               )
                              )
     )

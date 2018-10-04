@@ -1,4 +1,7 @@
-//  .gitignore
+.gitignore
 
 node_modules/
 
+A01_Course_Notes/
+
+z01_Notes_01.txt
