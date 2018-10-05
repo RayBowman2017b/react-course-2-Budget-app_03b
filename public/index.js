@@ -1,9 +1,17 @@
 
+//  index.js
+
+
 /*
 
-  sec012a_app.jsx
+        COPIED FROM  sec012a_app.jsx
 
 K:\A01_Udemy\Budget-app_03\src\sec012a_app.jsx
+
+For some people, it solved the problem with
+Entry module not found: Error: Can't resolve './src'
+
+It did not work for me.
 
  */
 

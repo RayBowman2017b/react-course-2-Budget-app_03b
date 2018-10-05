@@ -1,13 +1,6 @@
 
 /*
-
   sec009a_SFC_expense_dashboard_page.jsx
-
-K:\aaa_TransZ_DT201607\Ralph\Udemy\C023_Complete_React_Web_Dev\Sections\
-SEC_012_Testing_Your_Application\proj_02\Budget-app\src\sec009a_components\
-sec009a_SFC_expense_dashboard_page.jsx
-
-//  SEC_009 --- 80. Organizing Our Routes 12:30
 
 import GC_expense_dashboard_page from "../../sec009a_components/sec009a_SFC_expense_dashboard_page.jsx";
 

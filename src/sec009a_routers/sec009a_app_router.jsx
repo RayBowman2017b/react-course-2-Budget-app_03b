@@ -4,11 +4,8 @@
 
  */
 
-
 import React from 'react';
 
-//  BrowserRouter will be used only once
-//  Route will be used for each path
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 import Loadable from 'react-loadable';

@@ -3,26 +3,31 @@
 
 //  SEC_013 --- 135. A Production Web Server with Express 13:14
 
-//  K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\a01_final_projects\
-//  proj_02\Budget-app\A02_sec013_135_server\server_135.js
-
 //  node A02_sec013_135_server\server_135.js
 
-const GC_express = require('express');
-const GC_app = GC_express();
-const GC_path = require('path');
-const GC_public_path = GC_path.join(__dirname, '..', 'public');
-const GC_dist_path = GC_path.join(__dirname, '..', 'dist');
-//const GC_default_path = GC_path.join(GC_public_path, 'index.html');
-const GC_default_path = GC_path.join(GC_dist_path, 'index.html');
-const GC_port = 3000;
+const express = require('express');
+const app = express();
+const path = require('path');
+const public_path = path.join(__dirname, '..', 'public');
+const dist_path = path.join(__dirname, '..', 'dist');
+//const default_path = path.join(public_path, 'index.html');
+const default_path = path.join(dist_path, 'index.html');
+const port = 3000;
 
 const webpack = require("webpack");
+
+//  This is for building before running the server
 
 //import webpackMiddleware from 'webpack-dev-middleware';
 //import webpackConfig from '../webpack.config.js';
 // const webpackMiddleware = require ('webpack-dev-middleware');
 // const webpackConfig = require ('../webpack.config.js');
+
+//------------------------------------------------------------------
+//    The following was lifted from the webpack node API docs
+
+//  https://webpack.js.org/api/node/
+//  https://webpack.js.org/api/node/#error-handling
 
 webpack({
   // Configuration Object
@@ -48,19 +53,23 @@ webpack({
   // Log result...
 });
 
+//------------------------------------------------------------------
 
-//  use the middleware GC_express.static(GC_public_path)
-//  GC_app.use(GC_express.static(GC_public_path));
-  GC_app.use(GC_express.static(GC_dist_path));
-//  GC_app.use(webpackMiddleware(webpack(webpackConfig('production'))));
+//  use the middleware express.static(public_path)
+//  app.use(express.static(public_path));
+  app.use(express.static(dist_path));
+
+//  This is for building before running the server
+
+//  app.use(webpackMiddleware(webpack(webpackConfig('production'))));
 
 function unhandled_requests (req, res)
 {
-    res.sendFile(GC_default_path);
+    res.sendFile(default_path);
 }
 
 //  match all unmatched routes --- *
-GC_app.get ('*', unhandled_requests);
+app.get ('*', unhandled_requests);
 //  path
 
 function listen_handler ()
@@ -68,4 +77,4 @@ function listen_handler ()
     console.log ('server is up');
 }
 
-GC_app.listen(GC_port, listen_handler);
+app.listen(port, listen_handler);

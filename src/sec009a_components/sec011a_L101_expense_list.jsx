@@ -17,15 +17,6 @@ import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx
 
 import MP_SLCT_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
 
-
-// const MP_SLCT_getVisibleExpenses = Loadable({
-//  loader: () => import('../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx'),
-//  loading: MP_common_loading_handler,
-//  //timeout: 10000, // 10 seconds
-//  timeout: 3000, // 3 seconds
-// });
-
-
 let cnt = 0;
 
 export const SFC_expense_list = (P_props) => (
@@ -54,6 +45,5 @@ const GC_map_state_to_props = (P_state) =>  {
                          (P_state.expenses, P_state.filters)
            };
 };
-
 
 export default connect (GC_map_state_to_props)(SFC_expense_list);

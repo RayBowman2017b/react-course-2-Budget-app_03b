@@ -67,57 +67,102 @@ https://github.com/RayBowman2017b/react-course-2-expensify-app-pack-too-big
 
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
+ http://0.0.0.0:9900/
+
+            //  https://github.com/jmblog/how-to-optimize-momentjs-with-webpack
+            //  load `moment/locale/ja.js` and `moment/locale/it.js`
+            new webpack.ContextReplacementPlugin(/moment[/\\]locale$/, /ja|it/),
+
+            //  MiniCssExtractPlugin is recommended over ExtractTextPlugin
+
+            new MiniCssExtractPlugin({
+                  filename: 'style.[contenthash].css',
+            }),
+
+
+--------------------------------------------------------------------------
+https://github.com/webpack/webpack/issues/6858
+--------------------------------------------------------------------------
+
+zifn4b commented on May 26
+This particular issue I believe has to do with when webpack resorts
+to its default configuration on Windows it tries to resolve ./src and can't.
+It would need to resolve .\src instead. That's probably a bug.
+--------------------------------------------------------------------------
+
+domainoverflow commented on May 27
+if for some reason you used utf-8, i.e.: accented characters ( IDN, ex: é )
+ will also lead to this problem even though the underlying OS ( in this case
+ centos 7 ) file system does not have a problem with it.
+If the IDN character is a domain name, you can bypass this bug by converting
+it to punycode
+(xn--...... . tld ).
+
+One thing is for sure, user mishap or not, closing this issue every other week
+will not make it go away.
+--------------------------------------------------------------------------
+
+SirajKakeh commented on Jul 4
+I double @zifn4b and @domainoverflow, I spent hours on Windows
+ trying to solve this but when tried the same project on
+ Ubuntu 16.04 it worked like magic!
+--------------------------------------------------------------------------
+
+
 
 Entry module not found: Error: Can't resolve './src'
 
 K:\A01_Udemy\Budget-app_03>node A02_sec013_135_server\server_135.js
+
 server is up
-[ 'Entry module not found: Error: Can\'t resolve \'./src\'
- in \'K:\\A01_Udemy\\Budget-app_03\'
- resolve \'./src\' in \'K:\\A01_Udemy\\Budget-app_03\'
+
+[ 'Entry module not found: Error: Can't resolve './src'
+ in 'K:\\A01_Udemy\\Budget-app_03'
+
+ resolve './src' in 'K:\\A01_Udemy\\Budget-app_03'
  using description file:
  K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: .)
- Field \'browser\' doesn\'t contain a valid alias configuration
+ Field 'browser' doesn't contain a valid alias configuration
  using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src)
  no extension
- Field \'browser\' doesn\'t contain a valid alias configuration
+ Field 'browser' doesn't contain a valid alias configuration
  K:\\A01_Udemy\\Budget-app_03\\src is not a file
  .wasm
- Field \'browser\' doesn\'t contain a valid alias configuration
- K:\\A01_Udemy\\Budget-app_03\\src.wasm doesn\'t exist
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.wasm doesn't exist
  .mjs
- Field \'browser\' doesn\'t contain a valid alias configuration
- K:\\A01_Udemy\\Budget-app_03\\src.mjs doesn\'t exist
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.mjs doesn't exist
  .js
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src.js doesn\'t exist
-.json
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src.json doesn\'t exist
-as directory
-existing directory
-using path: K:\\A01_Udemy\\Budget-app_03\\src\\index
-using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src/index)
-no extension
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src\\index doesn\'t exist
-.wasm
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src\\index.wasm doesn\'t exist
-.mjs
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src\\index.mjs doesn\'t exist
-.js
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src\\index.js doesn\'t exist
-.json
-Field \'browser\' doesn\'t contain a valid alias configuration
-K:\\A01_Udemy\\Budget-app_03\\src\\index.json doesn\'t exist' ]
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.js doesn't exist
+ .json
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src.json doesn't exist
+ as directory
+ existing directory
+ using path: K:\\A01_Udemy\\Budget-app_03\\src\\index
+ using description file: K:\\A01_Udemy\\Budget-app_03\\package.json (relative path: ./src/index)
+ no extension
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index doesn't exist
+ .wasm
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.wasm doesn't exist
+ .mjs
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.mjs doesn't exist
+ .js
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.js doesn't exist
+ .json
+ Field 'browser' doesn't contain a valid alias configuration
+ K:\\A01_Udemy\\Budget-app_03\\src\\index.json doesn't exist' ]
 
-[ 'configuration\nThe \'mode\' option has not been set, webpack
- will fallback to \'production\' for this value. Set \'mode\' option
- to \'development\' or \'production\' to enable defaults for each environment.
- You can also set it to \'none\' to disable any default behavior.
+[ 'configuration\nThe 'mode' option has not been set, webpack
+ will fallback to 'production' for this value. Set 'mode' option
+ to 'development' or 'production' to enable defaults for each environment.
+ You can also set it to 'none' to disable any default behavior.
  Learn more: https://webpack.js.org/concepts/mode/' ]
 
 cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc

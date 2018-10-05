@@ -15,6 +15,5 @@ export const MP_common_loading_handler = (P_props) =>
   } else {
     return null;
   }
-//   <div>Loading...</div>;
 }
 

@@ -2,3 +2,4 @@
 
 @rem 
 yarn run build:prod 
+pause
