@@ -64,6 +64,12 @@ console.log ( ' --- index_html_template is ', index_html_template);
             );
     }
 
+    const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
+                  inject: 'body',
+                  hash: true,
+                  template: index_html_template,
+                  filename: 'index.html'
+            });
 
 function build_config (env)  {
 
@@ -118,12 +124,7 @@ function build_config (env)  {
             new MiniCssExtractPlugin({
                   filename: 'style.[contenthash].css',
             }),
-            new HtmlWebpackPlugin({
-                  inject: false,
-                  hash: true,
-                  template: index_html_template,
-                  filename: 'index.html'
-            }),
+            HtmlWebpackPluginConfig,
             new WebpackMd5Hash(),
 
             copy_webpack_plugin ()
