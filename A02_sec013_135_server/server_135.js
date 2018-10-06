@@ -12,7 +12,7 @@ const public_path = path.join(__dirname, '..', 'public');
 const dist_path = path.join(__dirname, '..', 'dist');
 //const default_path = path.join(public_path, 'index.html');
 const default_path = path.join(dist_path, 'index.html');
-const port = 3000;
+const port = process.env.port || 3000;
 
 const webpack = require("webpack");
 

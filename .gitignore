@@ -5,3 +5,8 @@ node_modules/
 A01_Course_Notes/
 
 z01_Notes_01.txt
+
+public/bundle.js
+public/bundle.js.map
+public/styles.css
+public/styles.css.map
