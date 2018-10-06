@@ -23,6 +23,7 @@ const webpack = require ('webpack');
 const path_public = path.join (__dirname, 'public');
 const path_dist = path.join (__dirname, 'dist');
 const path_favicon = path.join (__dirname, 'public', 'images');
+const path_favicon_dest = path.join (__dirname, 'images');
 const source_JSX = path.join (__dirname, 'src', active_app_file);
 const index_html_template = path.join (__dirname, 'src', 'index.html');
 
@@ -47,6 +48,7 @@ console.log (' --- path is ', __dirname);
 console.log ( ' --- path_public is ', path_public);
 console.log ( ' --- path_dist is ', path_dist);
 console.log ( ' --- path_favicon is ', path_favicon);
+console.log ( ' --- path_favicon_dest is ', path_favicon_dest);
 console.log ( ' --- source_JSX is ', source_JSX);
 console.log ( ' --- index_html_template is ', index_html_template);
 
@@ -60,7 +62,9 @@ console.log ( ' --- index_html_template is ', index_html_template);
     const copy_webpack_plugin = () =>
     {
         return new CopyWebpackPlugin (
-            [ { from: path_favicon }], { copyUnmodified: true }
+                //[ {from:'src/images', to:'images'} ], { copyUnmodified: true }
+                [ {from: path_favicon, to: path_favicon_dest} ],
+                { copyUnmodified: true }
             );
     }
 
