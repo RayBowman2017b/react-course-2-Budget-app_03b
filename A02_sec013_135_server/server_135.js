@@ -23,13 +23,15 @@ const webpack = require("webpack");
 // const webpackMiddleware = require ('webpack-dev-middleware');
 // const webpackConfig = require ('../webpack.config.js');
 
+const webpackConfig = require ('../webpack.config.js');
+
 //------------------------------------------------------------------
 //    The following was lifted from the webpack node API docs
 
 //  https://webpack.js.org/api/node/
 //  https://webpack.js.org/api/node/#error-handling
 
-const config_obj =  webpack_config ('production');
+const config_obj =  webpackConfig ('production');
 
 webpack(
   // Configuration Object
