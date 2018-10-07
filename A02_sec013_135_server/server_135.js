@@ -13,8 +13,10 @@ const dist_path = path.join(__dirname, '..', 'dist');
 //const default_path = path.join(public_path, 'index.html');
 const default_path = path.join(dist_path, 'index.html');
 
-const port = process.env.port || 3000;
-const port_set_from_env = !! process.env.port;
+//const port = process.env.port || 3000;
+const port = process.env.PORT || 3000;
+//const port_set_from_env = !! process.env.port;
+const port_set_from_env = !! process.env.PORT;
 
 const webpack = require("webpack");
 
