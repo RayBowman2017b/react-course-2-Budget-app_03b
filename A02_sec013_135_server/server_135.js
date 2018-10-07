@@ -12,7 +12,9 @@ const public_path = path.join(__dirname, '..', 'public');
 const dist_path = path.join(__dirname, '..', 'dist');
 //const default_path = path.join(public_path, 'index.html');
 const default_path = path.join(dist_path, 'index.html');
+
 const port = process.env.port || 3000;
+const port_set_from_env = !! process.env.port;
 
 const webpack = require("webpack");
 
@@ -79,7 +81,7 @@ app.get ('*', unhandled_requests);
 
 function listen_handler ()
 {
-    console.log ('server is up');
+    console.log (`server is up --- port is ${port} --- port_set_from_env ${port_set_from_env}`);
 }
 
 app.listen(port, listen_handler);
