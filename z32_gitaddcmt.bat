@@ -2,7 +2,7 @@
 @rem 
 @rem 
 git add .
-git commit -m "2018-10-06 19-06 config obj server"
+git commit -m "2018-10-06 19-22 config obj server"
 @rem git push Budget_app_03b master
 git push Budget_app_03b master
 @rem git push Budget_app_03 master
