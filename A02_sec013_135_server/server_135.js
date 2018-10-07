@@ -29,9 +29,12 @@ const webpack = require("webpack");
 //  https://webpack.js.org/api/node/
 //  https://webpack.js.org/api/node/#error-handling
 
-webpack({
+const config_obj =  webpack_config ('production');
+
+webpack(
   // Configuration Object
-}, (err, stats) => {
+  config_obj,
+ (err, stats) => {
   if (err) {
     console.error(err.stack || err);
     if (err.details) {
