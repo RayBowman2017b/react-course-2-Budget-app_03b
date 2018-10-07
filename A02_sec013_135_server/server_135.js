@@ -27,6 +27,8 @@ const webpack = require("webpack");
 // const webpackMiddleware = require ('webpack-dev-middleware');
 // const webpackConfig = require ('../webpack.config.js');
 
+/**********************************************************/
+
 const webpackConfig = require ('../webpack.config.js');
 
 //------------------------------------------------------------------
@@ -64,6 +66,8 @@ webpack(
 
 //------------------------------------------------------------------
 
+/**********************************************************/
+
 //  use the middleware express.static(public_path)
 //  app.use(express.static(public_path));
   app.use(express.static(dist_path));
@@ -76,6 +80,8 @@ function unhandled_requests (req, res)
 {
     res.sendFile(default_path);
 }
+
+            //  fall back to index.html whenever there is a 404 (unhandled route).
 
 //  match all unmatched routes --- *
 app.get ('*', unhandled_requests);
