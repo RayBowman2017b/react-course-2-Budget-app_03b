@@ -14,8 +14,7 @@ sec012a_expense_form.test.js
 
 import React from 'react';
 import { shallow } from 'enzyme';
-//import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 import CLS_expense_form from "../../sec009a_components/sec011a_L105_expense_form.jsx";
 

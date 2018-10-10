@@ -1,0 +1,9 @@
+{
+    "snapshotSerializers": [
+        "enzyme-to-json/serializer"
+    ],
+    "setupFiles": [
+        "raf/polyfill",
+        "\\A01_Udemy\\Budget-app_03\\src\\sec012a_L112_tests\\sec012a_setupTests.js"
+    ]
+}

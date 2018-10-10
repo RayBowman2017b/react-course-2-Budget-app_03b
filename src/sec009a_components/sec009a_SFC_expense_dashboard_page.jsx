@@ -10,15 +10,18 @@ import React from 'react';
 
 import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 
-import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
+//import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
+import ExpenseListFilters from "./sec011a_L103_expense_list_filters.jsx";
 
 import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
+
+    //<CLS_ErrorBoundary><CLS_expense_list_filters /></CLS_ErrorBoundary>
 
 const GC_expense_dashboard_page = () =>
 (
   <div>
     <div>This is from my dashboard component.</div>
-    <CLS_ErrorBoundary><CLS_expense_list_filters /></CLS_ErrorBoundary>
+    <CLS_ErrorBoundary><ExpenseListFilters /></CLS_ErrorBoundary>
     <SFC_expense_list />
   </div>
 );
