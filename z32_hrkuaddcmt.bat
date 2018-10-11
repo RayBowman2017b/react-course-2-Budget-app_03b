@@ -2,7 +2,7 @@
 @rem 
 @rem 
 git add .
-git commit -m "2018-10-07 17-32"
+git commit -m "2018-10-11 14-42 webpack dev-server not updating"
 @rem git push Budget_app_03b master
 git push Budget_app_03b master
 @rem git push Budget_app_03 master

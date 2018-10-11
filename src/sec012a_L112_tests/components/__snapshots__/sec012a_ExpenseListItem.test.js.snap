@@ -10,10 +10,9 @@ exports[`COMPONENT TEST FOR EXPENSE LIST ITEM should render an expense list item
     </h3>
   </GC_link_with_children>
   <p>
-     
-    109500
-     - 
-    -345600000
+    $1,095.00
+     --- 
+    December 27th, 1969
   </p>
 </div>
 `;
