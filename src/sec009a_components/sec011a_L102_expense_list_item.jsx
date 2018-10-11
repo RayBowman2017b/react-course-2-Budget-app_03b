@@ -10,6 +10,13 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom';
 
 
+//  SEC_013 --- 138. New Feature Workflow 12:32
+import moment from 'moment';
+
+//  SEC_013 --- 138. New Feature Workflow 12:32
+import numeral from 'numeral';
+
+
 const out = (P_id) => console.log (P_id);
 
 
@@ -24,12 +31,16 @@ const GC_link_with_children = (P_props) =>
     </NavLink>
   </div>
 );
+//      <p> {amount} - {createdAt}</p>
+
 export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
     <div>
       <GC_link_with_children route={"/edit/" + id}>
           <h3>{`TO > ${description}`}</h3>
       </GC_link_with_children>
-      <p> {amount} - {createdAt}</p>
+      <p>
+        {numeral(amount / 100).format("$0,0.00")} --- {moment(createdAt).format ("MMMM Do, YYYY")}
+      </p>
     </div>
 );
 

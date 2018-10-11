@@ -13,6 +13,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { Provider } from 'react-redux';
+import MP_moment from 'moment';
 
 import SFC_app_router from './sec009a_routers/sec009a_app_router.jsx';
 
@@ -36,11 +37,14 @@ const GC_store = MP_configure_store ();
 const L_august_01_2018 = 1533142800000;
 const L_august_03_2018 = 1533315600000;
 const L_sept_04_2018 = 1536080400000;
+const GC_time_01 = MP_moment.utc().valueOf();
+const GC_time_02 = MP_moment.utc().add(3, 'days').valueOf();
+const GC_time_03 = MP_moment.utc().add(33, 'days').valueOf();
 
 
-GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: L_august_01_2018 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: L_august_03_2018 }) );
-GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: L_sept_04_2018 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Water Bill', amount: 3300, createdAt: GC_time_01 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Gas Bill', amount: 2200, createdAt: GC_time_02 }) );
+GC_store.dispatch ( MP_addExpense ({ description: 'Rent', amount: 109500, createdAt: GC_time_03 }) );
 
 GC_store.subscribe ( () =>
   {

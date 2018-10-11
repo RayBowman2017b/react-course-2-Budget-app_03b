@@ -182,7 +182,7 @@ function build_config (env)  {
             //contentBase: dist_path,
             contentBase: path_public,
             host: "0.0.0.0",
-            port: 9900,
+            port: 9903,
             historyApiFallback: true,
         };
     }

@@ -22,15 +22,15 @@ import { MP_common_loading_handler } from "../Utilities_01/Loadable_Handlers.jsx
 
 
 
-//import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  }
-import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate  }
+import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_setEndDate  }
+//import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate  }
   from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
 
 //export class CLS_expense_list_filters extends React.Component
 export class ExpenseListFilters extends React.Component
 {
     state = {
-      calenderFocused: null
+      calendarFocused: null
     };
 
     constructor (P_props)
@@ -39,29 +39,34 @@ export class ExpenseListFilters extends React.Component
     }
 
     onExpenseDatesChange = ( { startDate, endDate } ) => {
-      //this.props.MDTP_setStartDate(startDate);
-      this.props.setStartDate(startDate);
+    //onDatesChange = ( { startDate, endDate } ) => {
+      this.props.MDTP_setStartDate(startDate);
+      //this.props.MP_setStartDate(startDate);
+      //this.props.setStartDate(startDate);
 
-      //this.props.MDTP_setEndDate (endDate);
-      this.props.setEndDate (endDate);
+      this.props.MDTP_setEndDate (endDate);
+      //this.props.MP_setEndDate (endDate);
+      //this.props.setEndDate (endDate);
     };
 
-    onExpenseFocusChange = (calenderFocused) => {
-      this.setState ( () => ( { calenderFocused } ) );
+    onExpenseFocusChange = (calendarFocused) => {
+    //onFocusChange = (calendarFocused) => {
+      this.setState ( () => ( { calendarFocused } ) );
     };
 
     TXBX_filters_change = (P_event) =>  {
-      //this.props.MDTP_setTextFilter (P_event.target.value);
-      this.props.setTextFilter (P_event.target.value);
+      this.props.MDTP_setTextFilter (P_event.target.value);
+      //this.props.MP_setTextFilter (P_event.target.value);
+      //this.props.setTextFilter (P_event.target.value);
     };
 
     SLCT_sort_item_change = (P_event) =>  {
       //this.props.MDTP_sortBy (P_event.target.value);
       if (P_event.target.value === 'date')
-        this.props.sortByDate ();
+        this.props.MDTP_sortByDate ();
       else
       if (P_event.target.value === 'amount')
-        this.props.sortByAmount ();
+        this.props.MDTP_sortByAmount ();
     };
 
 
@@ -89,8 +94,10 @@ export class ExpenseListFilters extends React.Component
   endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
   endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
   onDatesChange={ this.onExpenseDatesChange }
-  focusedInput={this.state.calenderFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+  //onDatesChange={ this.onDatesChange }
+  focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
   onFocusChange={ this.onExpenseFocusChange } // PropTypes.func.isRequired,
+  //onFocusChange={ this.onFocusChange } // PropTypes.func.isRequired,
   showClearDates={true}
   readOnly={false}
   numberOfMonths={1}
@@ -104,6 +111,23 @@ export class ExpenseListFilters extends React.Component
     };
 }
 
+/******************************************************
+<DateRangePicker
+  startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
+  startDateId="your_unique_start_date_id" // PropTypes.string.isRequired,
+  endDate={this.props.filters.endDate} // momentPropTypes.momentObj or null,
+  endDateId="your_unique_end_date_id" // PropTypes.string.isRequired,
+  onDatesChange={ this.onExpenseDatesChange }
+  focusedInput={this.state.calendarFocused} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+  onFocusChange={ this.onExpenseFocusChange } // PropTypes.func.isRequired,
+  showClearDates={true}
+  readOnly={false}
+  numberOfMonths={1}
+  isOutsideRange={ () => false }
+
+/>
+ ******************************************************/
+
 const GC_map_state_to_props = (P_state) => {
     return {
         filters: P_state.filters
@@ -113,29 +137,31 @@ const GC_map_state_to_props = (P_state) => {
 const mapDispatchToProps = (dispatch, props) =>  {
   return (
   {
-    //MDTP_setTextFilter: (P_TBX_filter_text) =>
-    setTextFilter: (P_TBX_filter_text) =>
-      //dispatch(MP_setTextFilter(P_TBX_filter_text)),
-      dispatch(setTextFilter(P_TBX_filter_text)),
-    //MDTP_sortBy: (P_sort_by_item) =>
-    sortBy: (P_sort_by_item) =>
+    MDTP_setTextFilter: (P_TBX_filter_text) =>
+    //setTextFilter: (P_TBX_filter_text) =>
+      dispatch(MP_setTextFilter(P_TBX_filter_text)),
+      //dispatch(setTextFilter(P_TBX_filter_text)),
+    MDTP_sortBy: (P_sort_by_item) =>
+    //sortBy: (P_sort_by_item) =>
       dispatch ( 
-        //P_sort_by_item === 'date' ? MP_sortByDate ()
-        P_sort_by_item === 'date' ? sortByDate ()
-          //: P_sort_by_item === 'amount' ? MP_sortByAmount ()
-          : P_sort_by_item === 'amount' ? sortByAmount ()
+        P_sort_by_item === 'date' ? MP_sortByDate ()
+        //P_sort_by_item === 'date' ? sortByDate ()
+          : P_sort_by_item === 'amount' ? MP_sortByAmount ()
+          //: P_sort_by_item === 'amount' ? sortByAmount ()
             : undefined
                           ),
-    sortByDate: () => dispatch(sortByDate ()),
-    sortByAmount: () => dispatch(sortByAmount ()),
-    //MDTP_setStartDate: (P_start_date) =>
-    setStartDate: (P_start_date) =>
-      //dispatch (MP_setStartDate(P_start_date) ),
-      dispatch (setStartDate(P_start_date) ),
-    //MDTP_setEndDate: (P_end_date) =>
-    setEndDate: (P_end_date) =>
-      //dispatch (MP_setEndDate(P_end_date) )
-      dispatch (setEndDate(P_end_date) )
+    //MDTP_sortByDate: () => dispatch(sortByDate ()),
+    MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
+    //MDTP_sortByAmount: () => dispatch(sortByAmount ()),
+    MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
+    MDTP_setStartDate: (P_start_date) =>
+    //setStartDate: (P_start_date) =>
+      dispatch (MP_setStartDate(P_start_date) ),
+      //dispatch (setStartDate(P_start_date) ),
+    MDTP_setEndDate: (P_end_date) =>
+    //setEndDate: (P_end_date) =>
+      dispatch (MP_setEndDate(P_end_date) )
+      //dispatch (setEndDate(P_end_date) )
   }      );
 };
 

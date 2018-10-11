@@ -15,16 +15,16 @@ import { default_filters, filters_01 } from './fixtures/sec012a_DATA_filters.js'
 
 import moment from 'moment';
 
-//const default_filters = {
-const filters = {
+const default_filters = {
+//const filters = {
     text: '',
     sortBy: 'date',
     startDate: undefined,
     endDate: undefined
 };
 
-//const filters = {
-const altFilters = {
+const filters = {
+//const altFilters = {
     text: 'bills',
     sortBy: 'amount',
     startDate: moment(0),
@@ -32,5 +32,5 @@ const altFilters = {
 };
 
 
-//export { default_filters, filters };
-export { filters, altFilters };
+export { default_filters, filters };
+//export { filters, altFilters };

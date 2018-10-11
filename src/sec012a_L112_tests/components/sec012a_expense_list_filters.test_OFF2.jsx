@@ -19,11 +19,11 @@ beforeEach(() => {
   wrapper = shallow(
     <ExpenseListFilters
       filters={filters}
-      setTextFilter={setTextFilter}
-      sortByDate={sortByDate}
-      sortByAmount={sortByAmount}
-      setStartDate={setStartDate}
-      setEndDate={setEndDate}
+      MDTP_setTextFilter={setTextFilter}
+      MDTP_sortByDate={sortByDate}
+      MDTP_sortByAmount={sortByAmount}
+      MDTP_setStartDate={setStartDate}
+      MDTP_setEndDate={setEndDate}
     />
   );
 });
@@ -74,6 +74,13 @@ test('should handle date changes', () => {
   expect(setStartDate).toHaveBeenLastCalledWith(startDate);
   expect(setEndDate).toHaveBeenLastCalledWith(endDate);
 });
+
+// test('hould handle date focus changes', () => {
+//   const calendarFocused = 'endDate';
+//   //wrapper.find('DateRangePicker').prop('onFocusChange')(calendarFocused);
+//   wrapper.find('withStyles(DateRangePicker)').prop('onFocusChange')(calendarFocused);
+//   expect(wrapper.state('calendarFocused')).toBe(calendarFocused);
+// });
 
 test('hould handle date focus changes', () => {
   const calendarFocused = 'endDate';
