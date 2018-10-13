@@ -1,6 +1,25 @@
 z32_Notes_02.txt
 
 
+https://github.com/webpack/webpack-dev-server/issues
+https://github.com/webpack/webpack-dev-server/issues/1522
+
+https://github.com/geoffmiller/webpack3-dynamic-imports-long-term-caching/issues/1
+
+https://github.com/survivejs/ama/issues/19
+
+
+Webpack dev-server not updating changes in browser
+
+I've pushed my code to there:
+https://github.com/RayBowman2017b/react-course-2-Budget-app_03b
+
+
+remote:        https://react-2018-09-budget-03.herokuapp.com/ deployed to Heroku
+
+https://react-2018-09-budget-03.herokuapp.com
+
+
 echo "# react-course-2-Budget-app_L136b" >> README.md
 git init
 git add README.md

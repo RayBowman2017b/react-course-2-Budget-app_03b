@@ -82,6 +82,8 @@ function build_config (env)  {
         entry: source_JSX,
         output:
         {
+            publicPath: '/',
+            chunkFilename: '[name].[chunkhash].js',
             filename: '[name].[chunkhash].js'
         },
         module:
@@ -183,7 +185,13 @@ function build_config (env)  {
             contentBase: path_public,
             host: "0.0.0.0",
             port: 9903,
+
             historyApiFallback: true,
+            watchContentBase: true,
+            watchOptions: { poll: true },
+
+            // publicPath: '/dist/'
+            publicPath: '/'
         };
     }
     else
