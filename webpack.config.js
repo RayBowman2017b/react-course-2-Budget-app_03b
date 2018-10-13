@@ -82,9 +82,10 @@ function build_config (env)  {
         entry: source_JSX,
         output:
         {
-            publicPath: '/',
-            chunkFilename: '[name].[chunkhash].js',
-            filename: '[name].[chunkhash].js'
+            // publicPath: '/',
+            // chunkFilename: '[name].[chunkhash].js',
+            // error filename: '[name].[chunkhash].js'
+            filename: '[name].[hash].js'
         },
         module:
         {
@@ -190,8 +191,14 @@ function build_config (env)  {
             watchContentBase: true,
             watchOptions: { poll: true },
 
+            //  Enabling Error Overlay
+            //  WDS provides an overlay for capturing
+            //  compilation related warnings and errors:
+            //  https://survivejs.com/webpack/developing/webpack-dev-server/
+            overlay: true,
+
             // publicPath: '/dist/'
-            publicPath: '/'
+            // publicPath: '/'
         };
     }
     else

@@ -9,6 +9,8 @@ https://github.com/geoffmiller/webpack3-dynamic-imports-long-term-caching/issues
 https://github.com/survivejs/ama/issues/19
 
 
+https://www.udemy.com/react-2nd-edition/learn/v4/questions/5349736
+
 Webpack dev-server not updating changes in browser
 
 I've pushed my code to there:

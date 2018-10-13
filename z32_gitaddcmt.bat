@@ -1,7 +1,7 @@
 @rem z32_gitaddcmt.bat
 @rem 
 git add .
-git commit -m "2018-10-12 22-10 webpack dev-server not updating"
+git commit -m "2018-10-13 16-00 webpack dev-server IS updating"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

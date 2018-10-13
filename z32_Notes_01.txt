@@ -4,21 +4,15 @@ https://github.com/RayBowman2017b/react-course-2-Budget-app_03
 https://github.com/RayBowman2017b/react-course-2-Budget-app_03b
 
 
-Hi,
-
-I don't understand why the last test is failing on ExpenseListFilters. I dropped in the code for the test from the example, and flexed my code to fit it.
-
-I've pushed it to there:
-
-https://github.com/RayBowman2017b/react-course-2-Budget-app_03b
-
-Can someone clue me in?
-
-THANKS!
-
-
 Up to, but not including, L137
+.......................................
 
+
+https://hackernoon.com/hot-reload-all-the-things-ec0fed8ab0
+
+https://gaearon.github.io/react-hot-loader/getstarted/
+
+.......................................
 
 
 Entry module not found: Error: Can't resolve './src' #8151
