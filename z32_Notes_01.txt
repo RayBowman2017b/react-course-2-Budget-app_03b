@@ -12,6 +12,15 @@ https://hackernoon.com/hot-reload-all-the-things-ec0fed8ab0
 
 https://gaearon.github.io/react-hot-loader/getstarted/
 
+As it turns out, all I had to do was to give the "hot" flag on the command
+to turn on the React Hot Loader:
+
+package,json
+    "dev-server": "webpack-dev-server  --env=development --hot",
+
+https://gaearon.github.io/react-hot-loader/getstarted/
+
+
 .......................................
 
 
