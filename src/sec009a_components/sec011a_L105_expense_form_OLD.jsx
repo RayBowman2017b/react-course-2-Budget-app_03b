@@ -42,23 +42,9 @@ export default class CLS_expense_form extends React.Component
             createdAt:  P_props.expense && P_props.expense.createdAt > 0 ? moment (P_props.expense.createdAt) : moment(),
             date: {},
             calenderFocused: false,
-            helper: '',
-            buttonLabel: P_props.buttonLabel,
-
-            error_conditions: {
-                description_mssg: <div></div>,
-                amount_mssg: <div></div>,
-                check_errors (P_outer_this, PF_submit) {
-
-                    this.description_mssg = ( ! P_outer_this.description ) ?
-                        <div>{'   *** Please provide description'}</div> : <div></div>;
-                    this.amount_mssg = ( ! P_outer_this.amount ) ?
-                        <div>{'   *** Please provide amount'}</div> : <div></div>;
-
-                    if ( P_outer_this.description && P_outer_this.amount )
-                        PF_submit ();
-                }
-            }
+            descriptionError: '',
+            amountError: '',
+            buttonLabel: P_props.buttonLabel
         };
     }
 
@@ -87,32 +73,65 @@ export default class CLS_expense_form extends React.Component
         this.setState( () => ({ calenderFocused: focused }) );
     };
 
+
+    GC_errors =
+    {
+        error_check(P_expense_form_obj)
+        {
+            this.descErrorMssg = 
+                 P_expense_form_obj.state.description ? '' : 'Please provide description';
+            this.amtErrorMssg = 
+                 P_expense_form_obj.state.amount ? '' : 'Please provide amount';
+
+            P_expense_form_obj.setState ( () => ( {
+                    descriptionError : this.descErrorMssg,
+                    amountError : this.amtErrorMssg
+                } ) );
+        },
+
+        is_error()
+        {  return ( this.descErrorMssg || this.amtErrorMssg );  }
+    };
+
     onExpenseSubmit = (e) =>  {
 
         e.preventDefault ();
 
-        const LF_submit=() => {
+/****************************************/
+
+        const L_descErrorMssg = 
+                 this.state.description ? '' : 'Please provide description';
+        const L_amtErrorMssg = 
+                 this.state.amount ? '' : 'Please provide amount';
+
+        this.setState ( () => ( {
+                descriptionError : L_descErrorMssg,
+                amountError : L_amtErrorMssg
+            } ) );
+
+/****************************************/
+
+        if ( ! L_descErrorMssg && ! L_amtErrorMssg )
             this.props.onExpenseSubmit ( {
                 description: this.state.description,
                 amount: parseFloat (this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             } );
-        };
-
-        this.setState ( () => ( 
-            this.state.error_conditions.check_errors (this.state, LF_submit)
-        ) );
-
-        this.setState ( () => ( { helper : '' } ) );
     };
 
 
     render () {
         return (
                 <div>
-                    {  this.state.error_conditions.description_mssg }
-                    {  this.state.error_conditions.amount_mssg }
+                    {
+                       this.state.descriptionError &&
+                         <div>{this.state.descriptionError}</div>
+                    }
+                    {
+                       this.state.amountError &&
+                         <div>{this.state.amountError}</div>
+                    }
 
                     <div>Expense Form</div>
                     <form action="" onSubmit={this.onExpenseSubmit}>
