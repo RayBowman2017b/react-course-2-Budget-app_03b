@@ -79,7 +79,7 @@ export default class CLS_expense_form extends React.Component
 
     //======================================================================
 
-    XPNF_check_errors (PF_submit)
+    XPNF_check_errors ()
     {
         const description_mssg = ( ! this.state.description ) ?
             <div>{'   *** Please provide description'}</div> : <div></div>;
@@ -99,8 +99,7 @@ export default class CLS_expense_form extends React.Component
     
         //console.log ("P_outer_this.amount " + this.state.amount);
     
-        if ( this.state.description && this.state.amount )
-            PF_submit ();
+        return ( this.state.description && this.state.amount );
     }
     //======================================================================
 
@@ -108,16 +107,13 @@ export default class CLS_expense_form extends React.Component
 
         e.preventDefault ();
 
-        const LF_submit=() => {
+        if ( this.XPNF_check_errors () )
             this.props.onExpenseSubmit ( {
                 description: this.state.description,
                 amount: parseFloat (this.state.amount, 10) * 100,
                 createdAt: this.state.createdAt.valueOf(),
                 note: this.state.note
             } );
-        };
-
-        this.XPNF_check_errors (LF_submit);
     };
 
 

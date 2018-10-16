@@ -8,6 +8,8 @@ import GC_expense_dashboard_page from "../../sec009a_components/sec009a_SFC_expe
 
 import React from 'react';
 
+import moment from 'moment';
+
 import SFC_expense_list from "./sec011a_L101_expense_list.jsx";
 
 //import CLS_expense_list_filters from "./sec011a_L103_expense_list_filters.jsx";
@@ -19,10 +21,15 @@ import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
 
     //<CLS_ErrorBoundary><CLS_expense_list_filters /></CLS_ErrorBoundary>
 
+const GC_style={
+    padding: 1 + "rem",
+    };
+
 const GC_expense_dashboard_page = () =>
 (
   <div>
-    <span style={{padding: 1 + "rem"}}>This is from my dashboard component.</span>
+    <span style={GC_style}>This is from my dashboard component.</span>
+    <div  style={GC_style}>{ moment().format('LLLL') }</div>
     <SFC_expenses_summary />
     <CLS_ErrorBoundary><ExpenseListFilters /></CLS_ErrorBoundary>
     <SFC_expense_list />
