@@ -1,10 +1,9 @@
 
-/***************************************************************************
+/*
 
 sec011a_L105_expense_form.jsx
 
- ***************************************************************************/
-
+ */
 
 import React from "react";
 
@@ -43,11 +42,22 @@ export default class CLS_expense_form extends React.Component
             createdAt:  P_props.expense && P_props.expense.createdAt > 0 ? moment (P_props.expense.createdAt) : moment(),
             date: {},
             calenderFocused: false,
+            helper: '',
             buttonLabel: P_props.buttonLabel,
 
             error_conditions: {
                 description_mssg: <div></div>,
                 amount_mssg: <div></div>,
+                check_errors (P_outer_this, PF_submit) {
+
+                    this.description_mssg = ( ! P_outer_this.description ) ?
+                        <div>{'   *** Please provide description'}</div> : <div></div>;
+                    this.amount_mssg = ( ! P_outer_this.amount ) ?
+                        <div>{'   *** Please provide amount'}</div> : <div></div>;
+
+                    if ( P_outer_this.description && P_outer_this.amount )
+                        PF_submit ();
+                }
             }
         };
     }
@@ -77,33 +87,6 @@ export default class CLS_expense_form extends React.Component
         this.setState( () => ({ calenderFocused: focused }) );
     };
 
-    //======================================================================
-
-    XPNF_check_errors (PF_submit)
-    {
-        const description_mssg = ( ! this.state.description ) ?
-            <div>{'   *** Please provide description'}</div> : <div></div>;
-        const amount_mssg = ( ! this.state.amount ) ?
-            <div>{'   *** Please provide amount'}</div> : <div></div>;
-    
-        this.setState((prevState) =>
-            ( {
-                ...prevState,
-                error_conditions:
-                {
-                    description_mssg,
-                    amount_mssg
-                }
-            } )
-        );
-    
-        //console.log ("P_outer_this.amount " + this.state.amount);
-    
-        if ( this.state.description && this.state.amount )
-            PF_submit ();
-    }
-    //======================================================================
-
     onExpenseSubmit = (e) =>  {
 
         e.preventDefault ();
@@ -117,7 +100,11 @@ export default class CLS_expense_form extends React.Component
             } );
         };
 
-        this.XPNF_check_errors (LF_submit);
+        this.setState ( () => ( 
+            this.state.error_conditions.check_errors (this.state, LF_submit)
+        ) );
+
+        this.setState ( () => ( { helper : '' } ) );
     };
 
 
@@ -172,4 +159,3 @@ export default class CLS_expense_form extends React.Component
         );
     };
 }
-
