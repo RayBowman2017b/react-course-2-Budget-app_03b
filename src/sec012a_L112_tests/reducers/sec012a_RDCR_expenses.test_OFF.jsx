@@ -29,8 +29,7 @@ import MP_expensesReducer from "../../sec011a_L099_reducers/sec011a_L099_RDCR_ex
 
 import MP_FXT_expenses from "../fixtures/sec012a_DATA_expenses.js";
 
-// import moment from 'moment';
-const moment = require ('moment');
+import moment from 'moment';
 
 describe ('EXPENSES REDUCER TESTS', () => {
 
@@ -111,6 +110,18 @@ describe ('EXPENSES REDUCER TESTS', () => {
 
         const L_state = MP_expensesReducer(MP_FXT_expenses, L_action);
         expect(L_state).toEqual (MP_FXT_expenses);
+    } );
+
+//  SEC_015 --- 157. Fetching Expenses: Part I 12:38
+    test ('should set expenses', () => 
+    {
+        const L_action = {
+            type: MP_expense_actions.ACT_XP_SET_EXPENSES,
+            expenses: [MP_FXT_expenses[1]]
+        }
+
+        const L_state = MP_expensesReducer(MP_FXT_expenses, L_action);
+        expect (L_state).toEqual([MP_FXT_expenses[1]]);
     } );
 
 } );

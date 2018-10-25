@@ -44,6 +44,27 @@ const index_html_template = path.join (__dirname, 'src', 'index.html');
 // const source_JSX = "K:/A01_Udemy/Budget-app_03/src/sec012a_app.js";
 // const index_html_template = "K:/A01_Udemy/Budget-app_03/src/index.html";
 
+
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+process.env.NODE_ENV = process.env.NODE_ENV || "development";
+
+if (process.env.NODE_ENV === "test")  {
+  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+  require('dotenv').config( { path: '.env.test' } );
+}
+else if (process.env.NODE_ENV === "development")  {
+  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+  require('dotenv').config( { path: '.env.development' } );
+}
+else
+  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+
+console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN is "${process.env.FIREBASE_AUTH_DOMAIN}"`);
+console.log (` ******** process.env.FIREBASE_DATABASE_URL is "${process.env.FIREBASE_DATABASE_URL}"`);
+console.log (` ******** process.env.FIREBASE_PROJECT_ID is "${process.env.FIREBASE_PROJECT_ID}"`);
+console.log (` ******** process.env.FIREBASE_STORAGE_BUCKET is "${process.env.FIREBASE_STORAGE_BUCKET}"`);
+console.log (` ******** process.env.FIREBASE_MESSAGING_SENDER_ID is "${process.env.FIREBASE_MESSAGING_SENDER_ID}"`);
+
 console.log (' --- path is ', __dirname);
 console.log ( ' --- path_public is ', path_public);
 console.log ( ' --- path_dist is ', path_dist);

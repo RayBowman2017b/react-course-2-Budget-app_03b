@@ -1,6 +1,9 @@
 z32_Notes_02.txt
 
 
+https://react-2018-09-budget.herokuapp.com/
+https://react-2018-09-budget-03.herokuapp.com/
+
 https://github.com/webpack/webpack-dev-server/issues
 https://github.com/webpack/webpack-dev-server/issues/1522
 
