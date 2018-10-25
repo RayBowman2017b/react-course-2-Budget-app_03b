@@ -49,15 +49,15 @@ const index_html_template = path.join (__dirname, 'src', 'index.html');
 process.env.NODE_ENV = process.env.NODE_ENV || "development";
 
 if (process.env.NODE_ENV === "test")  {
-  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+  console.log (` ******** process.env.NODE_ENV is "${process.env.NODE_ENV}"`);
   require('dotenv').config( { path: '.env.test' } );
 }
 else if (process.env.NODE_ENV === "development")  {
-  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+  console.log (` ******** process.env.NODE_ENV is "${process.env.NODE_ENV}"`);
   require('dotenv').config( { path: '.env.development' } );
 }
 else
-  console.log (` ******** process.env.NODE_ENV = "${process.env.NODE_ENV}"`);
+  console.log (` ******** process.env.NODE_ENV is "${process.env.NODE_ENV}"`);
 
 console.log (` ******** process.env.FIREBASE_AUTH_DOMAIN is "${process.env.FIREBASE_AUTH_DOMAIN}"`);
 console.log (` ******** process.env.FIREBASE_DATABASE_URL is "${process.env.FIREBASE_DATABASE_URL}"`);

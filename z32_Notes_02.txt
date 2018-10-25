@@ -14,6 +14,17 @@ https://github.com/survivejs/ama/issues/19
 
 https://www.udemy.com/react-2nd-edition/learn/v4/questions/5349736
 
+
+{apiKey: undefined, authDomain: undefined, databaseURL: undefined, projectId: undefined, storageBucket: undefined, …}
+apiKey: undefined
+authDomain: undefined
+databaseURL: undefined
+messagingSenderId: undefined
+projectId: undefined
+storageBucket: undefined
+__proto__: Object
+
+
 Webpack dev-server not updating changes in browser
 
 I've pushed my code to there:
