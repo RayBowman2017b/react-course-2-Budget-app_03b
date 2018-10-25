@@ -24,6 +24,49 @@ projectId: undefined
 storageBucket: undefined
 __proto__: Object
 
+K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\SEC_015_Firebase_with_Redux\L160_Update_Expense\r-17-10-update-expense\webpack.config.js
+
+
+ccccccccccccccccccccccccccccccccccccc
+
+
+Keys not being set to values in webpack dev-server
+Ralph · 10 minutes ago
+Hi all,
+
+My keys in process.env are not being set to their values in webpack dev-server.
+
+I can see that webpack.config is getting the proper values:
+
+$ cross-env NODE_ENV=development  webpack-dev-server  --env=development --hot --inline
+ ******** active_app_file is ->sec012a_app.js
+ ******** process.env.NODE_ENV = "development"
+ ******** process.env.FIREBASE_AUTH_DOMAIN is "react-2018-10-budget.firebaseapp.com"
+ ******** process.env.FIREBASE_DATABASE_URL is "https://react-2018-10-budget.firebaseio.com"
+ ******** process.env.FIREBASE_PROJECT_ID is "react-2018-10-budget"
+ ******** process.env.FIREBASE_STORAGE_BUCKET is "react-2018-10-budget.appspot.com"
+ ******** process.env.FIREBASE_MESSAGING_SENDER_ID is "xxxxxxxxxxxxxxxxx"
+
+
+However, the values are not showing up in the browser:
+
+{apiKey: undefined, authDomain: undefined, databaseURL: undefined, projectId: undefined, storageBucket: undefined, …}
+apiKey: undefined
+authDomain: undefined
+databaseURL: undefined
+messagingSenderId: undefined
+projectId: undefined
+storageBucket: undefined
+__proto__: Object
+
+
+I inserted my package.json and .babelrc files into the example project r-17-10-update-expense, and (after a few tweaks) it worked.
+
+Is this an issue with dotenv?
+
+THANKS!
+ccccccccccccccccccccccccccccccccccccc
+
 
 Webpack dev-server not updating changes in browser
 

@@ -96,6 +96,21 @@ console.log ( ' --- index_html_template is ', index_html_template);
                   filename: 'index.html'
             });
 
+//  SEC_015 --- 155. Creating a Separate Test Database 21:15
+    const LF_new_webpack_define_plugin = () => {
+      //[ LF_new_webpack_define_plugin ref1;]
+            //[S07251664|A01_DIrectory_01.txt::webpack.DefinePlugin drc1;^B]
+            return new webpack.DefinePlugin ( {
+                'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
+                'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
+                'process.env.FIREBASE_DATABASE_URL': JSON.stringify(process.env.FIREBASE_DATABASE_URL),
+                'process.env.FIREBASE_PROJECT_ID': JSON.stringify(process.env.FIREBASE_PROJECT_ID),
+                'process.env.FIREBASE_STORAGE_BUCKET': JSON.stringify(process.env.FIREBASE_STORAGE_BUCKET),
+                'process.env.FIREBASE_MESSAGING_SENDER_ID': JSON.stringify(process.env.FIREBASE_MESSAGING_SENDER_ID)
+            } );
+    };
+
+
 function build_config (env)  {
 
     const build_config_obj =
@@ -155,7 +170,8 @@ function build_config (env)  {
             HtmlWebpackPluginConfig,
             new WebpackMd5Hash(),
 
-            copy_webpack_plugin ()
+            copy_webpack_plugin (),
+            LF_new_webpack_define_plugin ()
         ]
     };
 
