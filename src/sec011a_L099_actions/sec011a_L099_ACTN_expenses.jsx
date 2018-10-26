@@ -73,7 +73,6 @@ export const MP_startRemoveExpense = ({ id } = {}) => {
 export const MP_editExpense = ( id, updates ) => (
         {
             type: MP_expense_actions.ACT_XP_EDIT_EXPENSE,
-//[S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_EDIT_EXPENSE, ref1;^B]
             id,
             updates
         }
@@ -92,7 +91,6 @@ export const MP_startEditExpense = (id, updates) => {
 export const MP_setExpenses = (expenses) =>
 ( {
   type: MP_expense_actions.ACT_XP_SET_EXPENSES,
-//[S07251669|sec011a_L099_RDCR_expenses.jsx::type: MP_expense_actions.ACT_XP_SET_EXPENSE, ref1;^B]
   expenses
 } );
 //=====================================================================
