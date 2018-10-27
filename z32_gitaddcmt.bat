@@ -1,7 +1,7 @@
 @rem z32_gitaddcmt.bat
 @rem 
 git add .
-git commit -m "2018-10-26 18-40 SEC 015 L158"
+git commit -m "2018-10-27 16-00 SEC 016 L163 favicon"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

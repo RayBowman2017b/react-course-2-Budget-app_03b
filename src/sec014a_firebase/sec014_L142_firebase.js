@@ -35,19 +35,24 @@ import MP_moment from 'moment';
   console.log ('  firebase.initializeApp(config);');
   console.log (config);
   console.log ("process.env");
-  console.log (process.env);
+//  console.log (process.env);
 
   firebase.initializeApp(config);
 
   const MP_database = firebase.database();
 
-//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
-  export { firebase, MP_database as default };
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+const MP_google_auth_provider = new firebase.auth.GoogleAuthProvider();
 
+//  SEC_015 --- 152. Asynchronous Redux Actions 18:49
+//  export { firebase, MP_database as default };
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+  export { firebase, MP_google_auth_provider, MP_database as default };
 
 
 
 //  Everything after this point is inactive.
+//=================================================================
 //=================================================================
 
   const GC_FB_database = MP_database;

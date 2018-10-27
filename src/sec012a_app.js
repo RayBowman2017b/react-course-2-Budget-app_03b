@@ -3,8 +3,6 @@
 
   sec012a_app.jsx
 
-K:\A01_Udemy\Budget-app_03\src\sec012a_app.jsx
-
  */
 
 console.log (" sec012a_app.jsx is running!");
@@ -27,6 +25,9 @@ import  './sec014a_firebase/sec014_L142_firebase.js';
 
 import { MP_startAddExpense, MP_startSetExpenses }
   from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+import { firebase, MP_database } from './sec014a_firebase/sec014_L142_firebase.js';
 
 import  MP_getVisibleExpenses from "./sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
 
@@ -80,7 +81,17 @@ GC_store.dispatch(MP_startSetExpenses())
               )
         .catch ((err) => console.log (` ******** ERROR in app.jsx :: ${err}`) );
 
+//=====================================================================
+
+//  SEC_016 --- 162. Login Page and Google Authentication 19:26
+
+firebase.auth().onAuthStateChanged ( (P_user) => {
+  if (P_user) {
+    console.log("log in", P_user);
+  } else {
+    console.log("log out", P_user);
+  }
+} );
 
 //=====================================================================
 //=====================================================================
-

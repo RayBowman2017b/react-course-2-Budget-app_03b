@@ -23,6 +23,11 @@ import  SFC_not_found_page  from  "../sec009a_components/sec009a_SFC_not_found_p
  /*************************************************************/
 
  /*************************************************************/
+const SFC_login_page = Loadable({
+  loader: () => import('../sec009a_components/sec016a_L162_login_page.jsx'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
 const SFC_header = Loadable({
   loader: () => import('../sec009a_components/sec009a_SFC_header.jsx'),
   loading: MP_common_loading_handler,
@@ -70,7 +75,8 @@ const GC_app_router = () => (
     <SFC_header />
 
     <Switch>
-        <Route path="/" component={SFC_expense_dashboard_page} exact={true} />
+        <Route path="/" component={SFC_login_page} exact={true} />
+        <Route path="/dashboard" component={SFC_expense_dashboard_page} exact={true} />
         <Route path="/create" component={CLS_add_expense_page}  />
         <Route path="/edit/:id" component={CLS_edit_expense_page}  />
         <Route path="/help" component={SFC_help_page}  />
