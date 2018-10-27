@@ -94,7 +94,7 @@ console.log ( ' --- index_html_template is ', index_html_template);
                   hash: true,
                   template: index_html_template,
                   filename: 'index.html',
-                  favicon: path_favicon
+                  favicon: path_favicon + '/favicon.png'
             });
 
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
