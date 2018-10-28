@@ -17,7 +17,7 @@ import { connect } from 'react-redux';
 
 import { NavLink } from 'react-router-dom';
 
-import { MP_start_login } from '../sec011a_L099_actions/sec016a_L162_auth.jsx';
+import { MP_start_login } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
 
 const GC_button_style =
 { padding: 0.2 + "rem", margin: 1 + "rem", float: "left", clear:"left" };
@@ -56,7 +56,7 @@ export const SFC_login_page = (P_props) => (
       style={GC_testbox01_style}
     />
     <button onClick={P_props.BTN_CLK_start_login} style={GC_button_style}>
-    login
+    LOGIN
     </button>
     <GC_link_with_children route={"/dashboard/"}>
           <h3>{'TO > dashboard'}</h3>
