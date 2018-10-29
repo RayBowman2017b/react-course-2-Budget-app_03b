@@ -34,8 +34,10 @@ const GC_link_with_children = (P_props) =>
 //      <p> {amount} - {createdAt}</p>
     // <div style={{paddingLeft: "6rem"}}>
 
+let ctr = 1;
+
 export const SFC_expense_list_item = ({ id, description, amount, createdAt }) => (
-    <div>
+    <div key={ctr++}>
       <GC_link_with_children route={"/edit/" + id}>
           <h3>{`TO > ${description}`}</h3>
       </GC_link_with_children>

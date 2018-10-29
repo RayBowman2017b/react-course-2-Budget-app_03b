@@ -30,7 +30,7 @@ export const MP_addExpense = (expense) => (
 
   export const MP_startAddExpense = (P_expenseData = {}) =>
   {
-    return (P_dispatch) =>
+    return (P_dispatch, P_fn_get_state) =>
     {
       const
       {
@@ -42,10 +42,13 @@ export const MP_addExpense = (expense) => (
 
       const L_expense = { description, note, amount, createdAt };
 
+      const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
+      //const L_DB_ref = `expenses`;
+      console.log("   *** user ref", L_DB_ref);
+
 //  SEC_015 --- 153. Testing Async Redux Actions: Part I 16:59
       //  return the promise
-
-      return MP_database.ref('expenses').push(L_expense).then ( (ref) =>
+      return MP_database.ref(L_DB_ref).push(L_expense).then ( (ref) =>
       {
           P_dispatch ( MP_addExpense ( { id: ref.key, ...L_expense } ) );
       } );

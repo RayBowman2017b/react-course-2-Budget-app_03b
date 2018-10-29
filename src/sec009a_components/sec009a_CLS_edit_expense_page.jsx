@@ -11,7 +11,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
 
-import { MP_editExpense, MP_removeExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+import { MP_startEditExpense, MP_startRemoveExpense }
+  from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
 const xxxGC_edit_expense_page = (P_props) =>
 (
@@ -89,8 +90,8 @@ const mapStateToProps = (state, props) =>  {
 const mapDispatchToProps = (dispatch) =>  {
   return (
   {
-    edit_expense: (id, expense) => dispatch(MP_editExpense(id, expense)),
-    remove_expense: (expense_id_obj) => dispatch(MP_removeExpense(expense_id_obj))
+    edit_expense: (id, expense) => dispatch(MP_startEditExpense(id, expense)),
+    remove_expense: (expense_id_obj) => dispatch(MP_startRemoveExpense(expense_id_obj))
   }      );
 };
 

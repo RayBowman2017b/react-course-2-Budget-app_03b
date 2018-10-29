@@ -27,7 +27,7 @@ export const SFC_expense_list = (P_props) => (
         <p>No Expenses</p>
     ) : (
         P_props.expenses.map ( (P_expense) => (
-              <SFC_expense_list_item key={P_expense.id} {...P_expense} />
+              <SFC_expense_list_item key={cnt++} {...P_expense} />
                                               )
                              )
     )
@@ -35,6 +35,7 @@ export const SFC_expense_list = (P_props) => (
 </div>
     );
 
+//              <SFC_expense_list_item key={P_expense.id} {...P_expense} />
 //           <CLS_ErrorBoundary>
 //              <SFC_expense_list_item key={P_expense.id} {...P_expense} />
 //           </CLS_ErrorBoundary>

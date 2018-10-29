@@ -36,7 +36,7 @@ const GC_provider_for_router = (
     <Provider store={GC_store}>
         <SFC_app_router />
     </Provider>
-    );
+);
 
 const GC_render_CTRL = {
   has_rendered: false,

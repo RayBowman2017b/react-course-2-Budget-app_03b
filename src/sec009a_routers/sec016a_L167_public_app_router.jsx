@@ -56,6 +56,16 @@ export const MP_SFC_public_route = ( {
 } ) => (
     <Route {...rest} component={ (props) => (
         isAuthenticated ? (
+                <Redirect to="/dashboard" />
+        ) : (
+                <P_Component {...props} />
+        )
+        ) }
+    />
+);
+
+/*
+        isAuthenticated ? (
             <CLS_public_route_error_boundary>
                 <Redirect to="/dashboard" />
             </CLS_public_route_error_boundary>
@@ -65,8 +75,9 @@ export const MP_SFC_public_route = ( {
             </CLS_public_route_error_boundary>
         )
         ) }
-    />
-);
+
+*/
+
 
 const GF_map_state_to_props = (P_state) => ( {
     isAuthenticated: !! P_state.auth.uid

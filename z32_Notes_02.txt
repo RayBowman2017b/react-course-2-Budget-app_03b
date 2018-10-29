@@ -26,7 +26,29 @@ __proto__: Object
 
 K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\SEC_015_Firebase_with_Redux\L160_Update_Expense\r-17-10-update-expense\webpack.config.js
 
+ccccccccccccccccccccccccccccccccccccc
 
+Q {G: Array(0), m: "AIzaSyDso8xPTbJv5GoQQSrUyP7S5dxEJO9lrys", o: "[DEFAULT]", u: "react-2018-10-budget.firebaseapp.com", b: Ch, …}
+VM1356 main.9d49f5caf6fd1c4d7dd4.js:57489 Warning: Each child in an array or iterator should have a unique "key" prop.
+
+Check the render method of `SFC_expense_list`. See https://fb.me/react-warning-keys for more information.
+    in SFC_expense_list_item (created by SFC_expense_list)
+    in SFC_expense_list (created by Connect(SFC_expense_list))
+    in Connect(SFC_expense_list) (created by GC_expense_dashboard_page)
+    in div (created by GC_expense_dashboard_page)
+    in GC_expense_dashboard_page (created by LoadableComponent)
+    in LoadableComponent (created by component)
+    in div (created by component)
+    in component (created by Route)
+    in Route (created by MP_SFC_private_route)
+    in MP_SFC_private_route (created by Connect(MP_SFC_private_route))
+    in Connect(MP_SFC_private_route) (created by GC_app_router)
+    in Switch (created by GC_app_router)
+    in div (created by GC_app_router)
+    in Router (created by GC_app_router)
+    in GC_app_router
+    in Provider
+    
 ccccccccccccccccccccccccccccccccccccc
 
 

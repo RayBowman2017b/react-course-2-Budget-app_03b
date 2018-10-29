@@ -10,7 +10,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import CLS_expense_form from "./sec011a_L105_expense_form.jsx";
-import { MP_addExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
+import { MP_startAddExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
 
 export class CLS_add_expense_page extends React.Component
@@ -19,10 +19,10 @@ export class CLS_add_expense_page extends React.Component
     {
       super(P_props);
     }
-        onExpenseSubmit = (P_expense) => {
-            this.props.add_expense (P_expense);
-            this.props.history.push ('/');
-        };
+    onExpenseSubmit = (P_expense) => {
+        this.props.add_expense (P_expense);
+        this.props.history.push ('/');
+    };
 
 
   render ()  {
@@ -41,6 +41,6 @@ export class CLS_add_expense_page extends React.Component
 }
 
 const GC_mapDispatchToProps = (P_dispatch) => ( {
-    add_expense: (P_expense) => P_dispatch(MP_addExpense(P_expense))
+    add_expense: (P_expense) => P_dispatch(MP_startAddExpense(P_expense))
 } );
 export default connect(undefined, GC_mapDispatchToProps) (CLS_add_expense_page);
