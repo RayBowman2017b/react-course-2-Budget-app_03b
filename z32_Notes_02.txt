@@ -28,6 +28,9 @@ K:\A01_Udemy\C023_Complete_React_Web_Dev\Sections\SEC_015_Firebase_with_Redux\L1
 
 ccccccccccccccccccccccccccccccccccccc
 
+Uncaught TypeError: Cannot read property 'store' of undefined
+
+
 Q {G: Array(0), m: "AIzaSyDso8xPTbJv5GoQQSrUyP7S5dxEJO9lrys", o: "[DEFAULT]", u: "react-2018-10-budget.firebaseapp.com", b: Ch, …}
 VM1356 main.9d49f5caf6fd1c4d7dd4.js:57489 Warning: Each child in an array or iterator should have a unique "key" prop.
 

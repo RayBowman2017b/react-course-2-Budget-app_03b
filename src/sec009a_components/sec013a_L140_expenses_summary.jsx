@@ -35,7 +35,8 @@ const SFC_expenses_summary=({ total_expense_count, total_expense_amount }) => {
           {
             total_expense_count === 0 ? (
                 <h1>No Expenses Selected</h1>
-            ) : <h1>Viewing {total_expense_count} {expense_word} totalling {total_expense_amount_formatted}</h1>
+            ) : <h1>Viewing {total_expense_count} {expense_word}
+                    totalling {total_expense_amount_formatted}</h1>
           }
         </span>
     )

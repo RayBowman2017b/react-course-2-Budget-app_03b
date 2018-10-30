@@ -65,8 +65,9 @@ export const MP_removeExpense = ( { id } = {} ) => (
 //=====================================================================
 
 export const MP_startRemoveExpense = ({ id } = {}) => {
-  return (dispatch) => {
-    return MP_database.ref(`expenses/${id}`).remove().then(() => {
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
+    return MP_database.ref(L_DB_ref).remove().then(() => {
       dispatch(MP_removeExpense({ id }));
     });
   };
@@ -83,8 +84,9 @@ export const MP_editExpense = ( id, updates ) => (
 //=====================================================================
 
 export const MP_startEditExpense = (id, updates) => {
-  return (dispatch) => {
-    return MP_database.ref(`expenses/${id}`).update(updates).then(() => {
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses/${id}`;
+    return MP_database.ref(L_DB_ref).update(updates).then(() => {
       dispatch(MP_editExpense(id, updates));
     });
   };
@@ -99,8 +101,9 @@ export const MP_setExpenses = (expenses) =>
 //=====================================================================
 
 export const MP_startSetExpenses = () => {
-  return (dispatch) => {
-    return MP_database.ref('expenses')
+  return (dispatch, P_fn_get_state) => {
+    const L_DB_ref = `users/${P_fn_get_state().auth.uid}/expenses`;
+    return MP_database.ref(L_DB_ref)
                       .once('value')
                       .then((snapshot) => {
       const L_expenses = [];

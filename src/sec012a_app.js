@@ -1,6 +1,9 @@
 
 /*
   sec012a_app.jsx
+
+  \src\sec012a_app.js
+
  */
 
 import React from 'react';
@@ -27,16 +30,25 @@ import { MP_login, MP_logout } from './sec011a_L099_actions/sec016a_L162_ACTN_au
 
 //=====================================================================
 
-const GC_store = MP_configure_store ();
+export const GC_store = MP_configure_store ();
 
-// import seed_DB from "./Utilities_01/seed_database.jsx";
-// seed_DB();
 
 const GC_provider_for_router = (
     <Provider store={GC_store}>
         <SFC_app_router />
     </Provider>
 );
+
+
+import { seed_DB } from "./Utilities_01/seed_database.jsx";
+//  import CLS_DB_init from "./Utilities_01/seed_database.jsx";
+
+//const CLSO_DB_init = new CLS_DB_init();
+
+// console.log("  type of CLSO_DB_init", typeof CLSO_DB_init);
+// //console.log("  type of CLSO_DB_init.seed_DB", typeof CLSO_DB_init.seed_DB);
+// CLSO_DB_init.seed_DB();
+// //    GC_store.dispatch(seed_DB());
 
 const GC_render_CTRL = {
   has_rendered: false,
@@ -67,6 +79,7 @@ firebase.auth().onAuthStateChanged ( (P_user) => {
     GC_store.dispatch(MP_startSetExpenses())
             .then ( () => {
               GC_render_CTRL.render_app ();
+              //seed_DB (P_user, GC_store);
                           }
                   )
             .catch ((err) => console.log
