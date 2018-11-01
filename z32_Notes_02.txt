@@ -15,6 +15,48 @@ https://github.com/survivejs/ama/issues/19
 https://www.udemy.com/react-2nd-edition/learn/v4/questions/5349736
 
 
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+
+https://www.udemy.com/react-2nd-edition/learn/v4/questions/5483838
+
+
+yarn run v1.7.0
+$ webpack-dev-server  --env=development --hot --inline
+ ******** GC_active_app_file is ->sec012a_app.jsx
+ ******** process.env.NODE_ENV = "development"
+ ******** process.env.FIREBASE_AUTH_DOMAIN = "react-2018-10-budget.firebaseapp.com"
+ ******** process.env.FIREBASE_DATABASE_URL = "https://react-2018-10-budget.firebaseio.com"
+ ******** process.env.FIREBASE_PROJECT_ID = "react-2018-10-budget"
+ ******** process.env.FIREBASE_STORAGE_BUCKET = "react-2018-10-budget.appspot.com"
+ ******** process.env.FIREBASE_MESSAGING_SENDER_ID = "1008691885881"
+ --- path is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app
+ --- public path is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\public
+ --- GC_actual_path_public() is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\public
+ --- GC_actual_path_dist () is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\dist
+ --- GC_path_favicon is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\public\images
+ --- GC_index_html_template is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\index.html
+ --- GC_actual_source_JSX is  K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\src\sec012a_app.jsx
+ --- GC_actual_source_JSX is  { root: 'K:\\',
+  dir: 'K:\\A01_Udemy\\C023_Complete_React_Web_Dev\\Budget-app\\src',
+  base: 'sec012a_app.jsx',
+  ext: '.jsx',
+  name: 'sec012a_app' }
+env --- development
+clean-webpack-plugin: K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\dist has been removed.
+(node:2384) DeprecationWarning: Tapable.plugin is deprecated. Use new API on `.hooks` instead
+i ｢wds｣: Project is running at http://0.0.0.0:9900/
+i ｢wds｣: webpack output is served from /
+i ｢wds｣: Content not from webpack is served from K:\A01_Udemy\C023_Complete_React_Web_Dev\Budget-app\public
+i ｢wds｣: 404s will fallback to /index.html
+(node:2384) DeprecationWarning: Chunk.mapModules: Use Array.from(chunk.modulesIterable, fn) instead
+i ｢wdm｣: Hash: cee0bebe2d7191ba91b1
+Version: webpack 4.20.2
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
+
 {apiKey: undefined, authDomain: undefined, databaseURL: undefined, projectId: undefined, storageBucket: undefined, …}
 apiKey: undefined
 authDomain: undefined

@@ -36,6 +36,10 @@ describe ('EXPENSE ACTION TESTS', () => {
 
     const GC_FXT_expenses = [];
 
+//  SEC_016 --- 168. Private Firebase Data 18:33
+    const GC_fake_uid = "this_is_a_fake_uid";
+    const GC_user_expenses_ref = `users/${GC_fake_uid}/expenses`;
+
     beforeEach( (done) => {
 
         //jest.setTimeout(10000);
@@ -53,7 +57,9 @@ describe ('EXPENSE ACTION TESTS', () => {
           //  This will be called async :> MP_database.ref('expenses').set(L_expensesData)
           //  Need to chain .then with a call to done so that the function will wait for
           //  the return of data from Firebase :> .then(() => done());
-          MP_database.ref('expenses').set(L_expensesData).then(() => done());
+//  SEC_016 --- 168. Private Firebase Data 18:33
+          //MP_database.ref('expenses').set(L_expensesData).then(() => done());
+          MP_database.ref(GC_user_expenses_ref).set(L_expensesData).then(() => done());
     }  );
 
     test ('should setup remove expense action object', () => {
@@ -64,6 +70,26 @@ describe ('EXPENSE ACTION TESTS', () => {
             id: '123abc'
         } );
     } );
+
+//  SEC_015 --- 159. Remove Expense 12:03
+
+    test("should remove expense from firebase", (done) => {
+        const L_store = GC_createMockStore({});
+        const L_id = GC_FXT_expenses[1].id;
+        L_store.dispatch(MP_startRemoveExpense({L_id})).then(() => {
+            const L_actions = L_store.getActions();
+            expect(L_actions[0]).toEqual( {
+                type: MP_expense_actions.ACT_XP_REMOVE_EXPENSE,
+                id: L_id
+            } );
+            return MP_database.ref(`expenses/${L_id}`).once('value');
+        } )
+        .then( (P_snapshot) => {
+            expect(P_snapshot.val()).toBeFalsy();
+            done();
+        } );
+    } );
+
 
     test ('should setup edit expense object', () => {
         const L_action = MP_editExpense ('123abc', { note: 'new note entered'} );

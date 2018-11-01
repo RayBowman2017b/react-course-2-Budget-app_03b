@@ -11,7 +11,10 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const WebpackMd5Hash = require('webpack-md5-hash');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 
-const CopyWebpackPlugin = require('copy-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
+//import WriteFilePlugin from 'write-file-webpack-plugin';
+const WriteFilePlugin = require('write-file-webpack-plugin');
 
 //  Turn these on as needed.
 //const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
@@ -98,9 +101,7 @@ console.log ( ' --- index_html_template is ', index_html_template);
             });
 
 //  SEC_015 --- 155. Creating a Separate Test Database 21:15
-    const LF_new_webpack_define_plugin = () => {
-      //[ LF_new_webpack_define_plugin ref1;]
-            //[S07251664|A01_DIrectory_01.txt::webpack.DefinePlugin drc1;^B]
+    const new_webpack_define_plugin = () => {
             return new webpack.DefinePlugin ( {
                 'process.env.FIREBASE_API_KEY': JSON.stringify(process.env.FIREBASE_API_KEY),
                 'process.env.FIREBASE_AUTH_DOMAIN': JSON.stringify(process.env.FIREBASE_AUTH_DOMAIN),
@@ -147,7 +148,20 @@ function build_config (env)  {
                 {
                    test: /\.(jpg|jpeg|gif|png|ico)$/,
                    exclude: /node_modules/,
-                   loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+                   //loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+                   //loader:'file-loader?name=img/[path][name].[ext]&context=./images'
+                   //loader:'file-loader?name=img/[path][name].[ext]&context=./public/images'
+                   use: [
+                       {
+                         loader:'file-loader',
+                         options: {
+                             //name:"img/[path][name].[ext]"
+                             name:"[path][name].[ext]",
+                             //context:"./public/images"
+                             context:""
+                         }
+                       }
+                   ]
                 }
             ]
         },
@@ -172,7 +186,8 @@ function build_config (env)  {
             new WebpackMd5Hash(),
 
             copy_webpack_plugin (),
-            LF_new_webpack_define_plugin ()
+            new_webpack_define_plugin (),
+            new WriteFilePlugin()
         ]
     };
 

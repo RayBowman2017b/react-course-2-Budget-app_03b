@@ -13,11 +13,11 @@ import { connect } from 'react-redux';
 import  MP_getVisibleExpenses from "../sec011a_L099_selectors/sec011a_L099_SLCT_expenses.jsx";
 import { MP_startAddExpense } from "../sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 
-import { GC_store } from '../sec012a_app.js';
+//import { GC_store } from '../sec012a_app.js';
 import MP_database from '../sec014a_firebase/sec014_L142_firebase.js';
 
 
-export const seed_DB = (P_user, GC_store) =>
+export const seed_DB = (P_user, P_store) =>
 {
     if (P_user.uid === null)
         return;
@@ -60,21 +60,21 @@ function handle_snapshot ()
          description: 'Rent', amount: 109500, createdAt: GC_time_03, note: 'from seed operation'
     };
 
-    GC_store.dispatch ( MP_startAddExpense (GC_expense_01) );
-    GC_store.dispatch ( MP_startAddExpense (GC_expense_02) );
-    GC_store.dispatch ( MP_startAddExpense (GC_expense_03) );
+    P_store.dispatch ( MP_startAddExpense (GC_expense_01) );
+    P_store.dispatch ( MP_startAddExpense (GC_expense_02) );
+    P_store.dispatch ( MP_startAddExpense (GC_expense_03) );
 };
 
 function log_visible_expenses ()
 {
-    GC_store.subscribe ( () =>
+    P_store.subscribe ( () =>
     {
-      const L_state = GC_store.getState ();
+      const L_state = P_store.getState ();
       const L_visibleExpenses = MP_getVisibleExpenses (L_state.expenses, L_state.filters);
       console.log (L_visibleExpenses);
     }                );
 
-    console.log ("  --- GC_store.getState()", GC_store.getState());
+    console.log ("  --- P_store.getState()", P_store.getState());
 };
 
 

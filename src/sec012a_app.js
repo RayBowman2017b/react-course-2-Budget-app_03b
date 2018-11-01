@@ -19,7 +19,7 @@ import 'normalize.css/normalize.css';
 import './styles/styles.scss';
 import 'react-dates/lib/css/_datepicker.css';
 import 'react-dates/initialize';
-import  './sec014a_firebase/sec014_L142_firebase.js';
+// import  './sec014a_firebase/sec014_L142_firebase.js';
 
 import { MP_startSetExpenses } from "./sec011a_L099_actions/sec011a_L099_ACTN_expenses.jsx";
 

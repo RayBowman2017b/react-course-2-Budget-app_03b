@@ -1,7 +1,7 @@
 @rem z32_gitaddcmt.bat
 @rem 
 git add .
-git commit -m "2018-10-29 23-00 SEC 016 L167 login logout doubling"
+git commit -m "2018-11-01 13-00 SEC 017 L171 not finding bg.jpg"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

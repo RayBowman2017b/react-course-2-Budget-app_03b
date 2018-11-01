@@ -42,7 +42,10 @@ const GC_link_with_children = (P_props) =>
 );
 
 export const SFC_login_page = (P_props) => (
-  <div>
+  <div className="_box-layout">
+<div>
+  <h1>Expensify App</h1>
+  <p>It's time to get your expenses under control.</p>
     <input
       type="text"
       placeholder="USERNAME"
@@ -62,6 +65,7 @@ export const SFC_login_page = (P_props) => (
           <h3>{'TO > dashboard'}</h3>
     </GC_link_with_children>
   </div>
+    </div>
 );
 
 

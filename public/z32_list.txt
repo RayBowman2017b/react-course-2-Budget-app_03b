@@ -1,0 +1,28 @@
+ Volume in drive K is Biggun
+ Volume Serial Number is D6A2-FDB2
+
+ Directory of K:\A01_Udemy\Budget-app_03\public
+
+11/01/2018  12:49 PM    <DIR>          .
+11/01/2018  12:49 PM    <DIR>          ..
+11/01/2018  12:45 PM         1,681,962 0.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM            63,404 1.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM            33,000 2.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM            39,326 3.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM             1,824 4.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM             2,640 5.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM            10,093 6.cd16f5325e1ed12b8f3b.js
+11/01/2018  12:45 PM            87,410 7.cd16f5325e1ed12b8f3b.js
+09/19/2018  08:47 PM         4,124,304 bundle.js
+11/01/2018  12:45 PM             1,683 favicon.png
+11/01/2018  10:34 AM    <DIR>          images
+11/01/2018  12:45 PM               935 index.html
+10/04/2018  09:43 PM             2,266 index.js
+11/01/2018  12:45 PM         6,947,714 main.cd16f5325e1ed12b8f3b.js
+08/01/2018  05:23 PM    <DIR>          scripts
+11/01/2018  12:45 PM            80,785 style.a05ddef92a443fb42aa9.css
+11/01/2018  12:49 PM                 0 z32_list.txt
+11/01/2018  12:49 PM    <DIR>          z32_persisted_files
+03/20/2018  04:38 PM                 3 z_RUN_ME.bat
+              16 File(s)     13,077,349 bytes
+               5 Dir(s)  103,562,817,536 bytes free
