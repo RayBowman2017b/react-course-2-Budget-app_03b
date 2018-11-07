@@ -24,7 +24,7 @@ import  SFC_help_page  from  "../sec009a_components/sec009a_SFC_help_page.jsx";
 import  SFC_not_found_page  from  "../sec009a_components/sec009a_SFC_not_found_page.jsx";
  /*************************************************************/
 
- /*************************************************************/
+/*************************************************************
 const SFC_login_page = Loadable({
   loader: () => import('../sec009a_components/sec016a_L162_login_page.jsx'),
   loading: MP_common_loading_handler,
@@ -51,6 +51,7 @@ const SFC_help_page = Loadable({
   loading: MP_common_loading_handler,
   timeout: 3000, // 3 seconds
 });
+ *************************************************************/
 const SFC_not_found_page = Loadable({
   loader: () => import('../sec009a_components/sec009a_SFC_not_found_page.jsx'),
   loading: MP_common_loading_handler,
@@ -74,11 +75,14 @@ const GC_app_router = () => (
     <Router history={MP_history}>
   <div>
     <Switch>
+  {/*  */}
+  {/*
         <MP_SFC_public_route path="/" component={SFC_login_page} exact={true} />
         <MP_SFC_private_route path="/dashboard" component={SFC_expense_dashboard_page} exact={true} />
         <MP_SFC_private_route path="/create" component={CLS_add_expense_page}  />
         <MP_SFC_private_route path="/edit/:id" component={CLS_edit_expense_page}  />
         <Route path="/help" component={SFC_help_page}  />
+    */}
         <Route path="/xpr" component={CLS_X_page}  />
         <Route component={SFC_not_found_page}  />
     </Switch>

@@ -1,7 +1,7 @@
 @rem z32_gitaddcmt.bat
 @rem 
 git add .
-git commit -m "2018-11-06 18-00 experimental"
+git commit -m "2018-11-06 22-00 experimental"
 @rem git push Budget_app_03b master
 @rem git push Budget_app_03 master
 @rem 

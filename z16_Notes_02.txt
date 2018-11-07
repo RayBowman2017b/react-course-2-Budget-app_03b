@@ -17,6 +17,102 @@ https://www.udemy.com/react-2nd-edition/learn/v4/questions/5349736
 
 ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
 
+/***************************************************************************
+
+z32_X_page.jsx
+
+K:\A01_Udemy\Budget-app_03\src\sec009a_components\z32_X_page.jsx
+
+import CLS_X_page from "./sec009a_components/z32_X_page.jsx";
+
+
+ ***************************************************************************/
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { connect } from 'react-redux';
+
+
+export default class CLS_X_page extends React.Component  {
+
+    constructor (P_props) {
+
+        super (P_props);
+
+        this.main_ref = React.createRef ();
+        this.heading_ref = React.createRef ();
+        this.form_ref = React.createRef ();
+        this.div1_ref = React.createRef ();
+        this.div2_ref = React.createRef ();
+
+        this.div1_obj = this.CGM_div_01 ();
+        this.div2_obj = this.CGM_div_02 ();
+    }
+//=========================================================
+
+    componentDidMount ()  {
+
+        console.log ("this.form_ref");
+        console.log (this.form_ref);
+
+        if (this.heading_ref.current !== null) {
+
+            console.log ("this.heading_ref.current");
+            console.log (this.heading_ref.current);
+            this.heading_ref.current.textContent = "+++++++++++++++++++++";
+            console.log (this.heading_ref.current);
+
+            //  THIS blew up ... it blew up real good!
+            //ReactDOM.render (this.div1_obj, this.heading_ref.current);
+            //ReactDOM.render (this.div2_obj, this.div1_obj.current);
+
+            this.heading_ref.current.append (this.div1_obj);
+            //  rendered as:
+            //  +++++++++++++++++++++[object Object]
+
+            console.log (this.heading_ref.current);
+            console.log (this.div1_obj.current);
+            console.log ("typeof this.div1_obj.current");
+            console.log (typeof this.div1_obj.current);
+        }
+    }
+//=========================================================
+
+    CGM_div_01 () {
+        return (
+            <div id="div1" ref={this.div1_ref}>this is div 1</div>
+        );
+    }
+//=========================================================
+
+    CGM_div_02 ()  {
+        return (
+            <div id="div1.1" ref={this.div2_ref}>this is div 2</div>
+        );
+    }
+//=========================================================
+
+    render () {
+        return (
+            <div id="main" ref={this.main_ref}>
+              <form ref={this.form_ref}>
+                <div id="heading" ref={ this.heading_ref }>HEADING</div>
+              </form>
+            </div>
+        );
+    }
+//=========================================================
+//=========================================================
+
+}
+// END: CLS_X_page
+
+//=========================================================
+//=========================================================
+
+
+ccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+
 https://www.udemy.com/react-2nd-edition/learn/v4/questions/5295946
 
 https://react-2018-09-budget-03.herokuapp.com/
