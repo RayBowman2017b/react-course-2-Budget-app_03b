@@ -6,9 +6,11 @@ import MP_header from '../../sec009a_components/sec009a_SFC_header.jsx';
 */
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { MP_start_logout } from '../sec011a_L099_actions/sec016a_L162_ACTN_auth.jsx';
+
+/***************************************************************************
 
 const GF_link=(P_props) =>
     (
@@ -33,6 +35,24 @@ const SFC_header = (props) =>
     LOGOUT
   </button>
 </header>
+);
+ ***************************************************************************/
+
+export const SFC_header = (P_props) => (
+  <header className="header">
+    <div className="content-container">
+      <div className="header__content">
+        <Link className="header__title" to="/dashboard">
+          <h1>Expensify</h1>
+        </Link>
+        <button id='BTN_logout'
+                className="button button--link"
+                onClick={P_props.BTN_CLK_start_logout}>
+          LOGOUT
+        </button>
+      </div>
+    </div>
+  </header>
 );
 
 const GF_map_dispatch_to_props = (P_dispatch) => ( {

@@ -26,7 +26,6 @@ import { MP_setTextFilter, MP_sortByDate, MP_sortByAmount, MP_setStartDate, MP_s
 //import { setTextFilter, sortByDate, sortByAmount, setStartDate, setEndDate  }
   from "../sec011a_L099_actions/sec011a_L099_ACTN_filters.jsx";
 
-//export class CLS_expense_list_filters extends React.Component
 export class ExpenseListFilters extends React.Component
 {
     state = {
@@ -39,29 +38,21 @@ export class ExpenseListFilters extends React.Component
     }
 
     onExpenseDatesChange = ( { startDate, endDate } ) => {
-    //onDatesChange = ( { startDate, endDate } ) => {
+
       this.props.MDTP_setStartDate(startDate);
-      //this.props.MP_setStartDate(startDate);
-      //this.props.setStartDate(startDate);
 
       this.props.MDTP_setEndDate (endDate);
-      //this.props.MP_setEndDate (endDate);
-      //this.props.setEndDate (endDate);
     };
 
     onExpenseFocusChange = (calendarFocused) => {
-    //onFocusChange = (calendarFocused) => {
       this.setState ( () => ( { calendarFocused } ) );
     };
 
     TXBX_filters_change = (P_event) =>  {
       this.props.MDTP_setTextFilter (P_event.target.value);
-      //this.props.MP_setTextFilter (P_event.target.value);
-      //this.props.setTextFilter (P_event.target.value);
     };
 
     SLCT_sort_item_change = (P_event) =>  {
-      //this.props.MDTP_sortBy (P_event.target.value);
       if (P_event.target.value === 'date')
         this.props.MDTP_sortByDate ();
       else
@@ -72,13 +63,16 @@ export class ExpenseListFilters extends React.Component
 
     render () {
       return (
-        <div>
+      <div className="content-container">
+        <div className="input-group">
+          <div className="input-group__item">
             <input  type="text"
                     id="TBX_filters"
                     value={this.props.filters.text}
                     onChange={this.TXBX_filters_change}
             />
-
+          </div>
+          <div className="input-group__item">
             <select
               value={this.props.filters.sortBy}
               onChange={this.SLCT_sort_item_change}
@@ -86,7 +80,9 @@ export class ExpenseListFilters extends React.Component
               <option value="date">Date</option>
               <option value="amount">Amount</option>
             </select>
+          </div>
 
+          <div className="input-group__item">
 
 <DateRangePicker
   startDate={this.props.filters.startDate} // momentPropTypes.momentObj or null,
@@ -105,6 +101,8 @@ export class ExpenseListFilters extends React.Component
 
 />
 
+            </div>
+          </div>
         </div>
       );
 
@@ -138,11 +136,8 @@ const mapDispatchToProps = (dispatch, props) =>  {
   return (
   {
     MDTP_setTextFilter: (P_TBX_filter_text) =>
-    //setTextFilter: (P_TBX_filter_text) =>
       dispatch(MP_setTextFilter(P_TBX_filter_text)),
-      //dispatch(setTextFilter(P_TBX_filter_text)),
     MDTP_sortBy: (P_sort_by_item) =>
-    //sortBy: (P_sort_by_item) =>
       dispatch ( 
         P_sort_by_item === 'date' ? MP_sortByDate ()
         //P_sort_by_item === 'date' ? sortByDate ()
@@ -150,22 +145,15 @@ const mapDispatchToProps = (dispatch, props) =>  {
           //: P_sort_by_item === 'amount' ? sortByAmount ()
             : undefined
                           ),
-    //MDTP_sortByDate: () => dispatch(sortByDate ()),
     MDTP_sortByDate: () => dispatch(MP_sortByDate ()),
-    //MDTP_sortByAmount: () => dispatch(sortByAmount ()),
     MDTP_sortByAmount: () => dispatch(MP_sortByAmount ()),
     MDTP_setStartDate: (P_start_date) =>
-    //setStartDate: (P_start_date) =>
       dispatch (MP_setStartDate(P_start_date) ),
-      //dispatch (setStartDate(P_start_date) ),
     MDTP_setEndDate: (P_end_date) =>
-    //setEndDate: (P_end_date) =>
       dispatch (MP_setEndDate(P_end_date) )
-      //dispatch (setEndDate(P_end_date) )
   }      );
 };
 
 
 export default connect(GC_map_state_to_props, mapDispatchToProps)
-                        //(CLS_expense_list_filters);
                         (ExpenseListFilters);

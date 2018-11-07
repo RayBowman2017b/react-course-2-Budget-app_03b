@@ -23,6 +23,7 @@ import CLS_ErrorBoundary from "../Utilities_01/Error_Boundaries.jsx";
 
 const GC_style={
     padding: 1 + "rem",
+    backgroundColor: "lightBlue"
     };
 
 const GC_expense_dashboard_page = () =>

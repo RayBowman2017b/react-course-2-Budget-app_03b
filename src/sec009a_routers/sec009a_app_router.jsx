@@ -57,6 +57,15 @@ const SFC_not_found_page = Loadable({
   timeout: 3000, // 3 seconds
 });
 
+
+//import CLS_X_page from "./sec009a_components/z32_X_page.jsx";
+
+const CLS_X_page = Loadable({
+  loader: () => import('../sec009a_components/z32_X_page.jsx'),
+  loading: MP_common_loading_handler,
+  timeout: 3000, // 3 seconds
+});
+
 /*************************************************************/
 
 console.log ('router called');
@@ -70,6 +79,7 @@ const GC_app_router = () => (
         <MP_SFC_private_route path="/create" component={CLS_add_expense_page}  />
         <MP_SFC_private_route path="/edit/:id" component={CLS_edit_expense_page}  />
         <Route path="/help" component={SFC_help_page}  />
+        <Route path="/xpr" component={CLS_X_page}  />
         <Route component={SFC_not_found_page}  />
     </Switch>
   </div>

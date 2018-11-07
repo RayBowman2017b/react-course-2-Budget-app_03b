@@ -17,6 +17,7 @@ import { SFC_expenses_summary } from '../../sec009a_components/sec013a_L140_expe
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import numeral from 'numeral';
 
@@ -31,14 +32,21 @@ const SFC_expenses_summary=({ total_expense_count, total_expense_amount }) => {
     const total_expense_amount_formatted = numeral(total_expense_amount / 100).format("$0,0.00");
 
     return (
-        <span>
+    <div className="page-header">
+      <div className="content-container">
           {
             total_expense_count === 0 ? (
                 <h1>No Expenses Selected</h1>
-            ) : <h1>Viewing {total_expense_count} {expense_word}
-                    totalling {total_expense_amount_formatted}</h1>
+            ) : <h1 className="page-header__title">
+                    Viewing <span>{total_expense_count} {expense_word} </span>
+                    totalling <span>{total_expense_amount_formatted}</span></h1>
           }
-        </span>
+        <div className="page-header__actions">
+          <Link className="button" to="/create">Add Expense</Link>
+          <Link className="button" to="/xpr">Experimental Page</Link>
+        </div>
+      </div>
+    </div>
     )
 };
 //==========================================================================

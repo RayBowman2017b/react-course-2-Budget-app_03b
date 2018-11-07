@@ -42,9 +42,9 @@ const GC_link_with_children = (P_props) =>
 );
 
 export const SFC_login_page = (P_props) => (
-  <div className="_box-layout">
-<div>
-  <h1>Expensify App</h1>
+  <div className="box-layout">
+<div className="box-layout__box">
+  <h1 className="box-layout__title">Expensify</h1>
   <p>It's time to get your expenses under control.</p>
     <input
       type="text"
@@ -58,12 +58,14 @@ export const SFC_login_page = (P_props) => (
       id="TXBX_password"
       style={GC_testbox01_style}
     />
-    <button onClick={P_props.BTN_CLK_start_login} style={GC_button_style}>
-    LOGIN
+    <button className="button" onClick={P_props.BTN_CLK_start_login}>
+    Login with Google
     </button>
+  {/*
     <GC_link_with_children route={"/dashboard/"}>
           <h3>{'TO > dashboard'}</h3>
     </GC_link_with_children>
+    */}
   </div>
     </div>
 );

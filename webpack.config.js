@@ -146,22 +146,22 @@ function build_config (env)  {
                     ]
                 },
                 {
-                   test: /\.(jpg|jpeg|gif|png|ico)$/,
-                   exclude: /node_modules/,
-                   //loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
-                   //loader:'file-loader?name=img/[path][name].[ext]&context=./images'
-                   //loader:'file-loader?name=img/[path][name].[ext]&context=./public/images'
-                   use: [
-                       {
-                         loader:'file-loader',
-                         options: {
-                             //name:"img/[path][name].[ext]"
-                             name:"[path][name].[ext]",
-                             //context:"./public/images"
-                             context:""
-                         }
-                       }
-                   ]
+                    test: /\.(jpg|jpeg|gif|png|ico)$/,
+                    exclude: /node_modules/,
+                    //loader:'file-loader?name=img/[path][name].[ext]&context=./app/images'
+                    //loader:'file-loader?name=img/[path][name].[ext]&context=./images'
+                    //loader:'file-loader?name=img/[path][name].[ext]&context=./public/images'
+                    use: [
+                        {
+                            loader:'file-loader',
+                            options: {
+                                //name:"img/[path][name].[ext]"
+                                name:"[path][name].[ext]",
+                                //context:"./public/images"
+                                context:"./"
+                            }
+                        }
+                    ]
                 }
             ]
         },
@@ -186,8 +186,8 @@ function build_config (env)  {
             new WebpackMd5Hash(),
 
             copy_webpack_plugin (),
-            new_webpack_define_plugin (),
-            new WriteFilePlugin()
+            new_webpack_define_plugin ()  // ,
+            // new WriteFilePlugin()
         ]
     };
 
